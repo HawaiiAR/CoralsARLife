@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
+using Fish;
 
 namespace Bleaching {
 
     public class BleachingExperienceControl : MonoBehaviour
     {
+        public static Action ReefBleached;
 
         public List<GameObject> corals = new List<GameObject>();
         public List<GameObject> apexPreditors = new List<GameObject>();
@@ -20,7 +22,12 @@ namespace Bleaching {
 
         void Start()
         {
+            FishSelector.CoralRestored += BringFishBack;
+        }
 
+        private void OnDisable()
+        {
+            FishSelector.CoralRestored -= BringFishBack;
         }
 
         // Update is called once per frame
@@ -59,7 +66,7 @@ namespace Bleaching {
 
         private IEnumerator BleachingSequence()
         {
-            float delay = Random.Range(.5f, 1);
+            float delay = UnityEngine.Random.Range(.5f, 1);
             foreach (GameObject c in corals)
             {
                
@@ -67,7 +74,7 @@ namespace Bleaching {
              //   Renderer rend = corals[i].GetComponent<Renderer>();
                 Renderer rend = c.GetComponent<Renderer>();
                 float _time = 0;
-                _colorFadeTime = Random.Range(1, 5);
+                _colorFadeTime = UnityEngine.Random.Range(1, 5);
 
                 Color _currentColor = rend.material.color;
 
@@ -85,33 +92,37 @@ namespace Bleaching {
 
             _fishFoodChainLevel = 1;
 
-            RemoveFish(_fishFoodChainLevel);
+            RemoveFish(_fishFoodChainLevel, false);
         }
 
-        private void RemoveFish(int fishStrata)
+        //by calling fish int and bool this can be recycled to bring fish back
+        private void RemoveFish(int fishStrata, bool state)
         {  
 
             switch(fishStrata){
                 case 1:
-                    StartCoroutine(RemoveFish(bottomLevelFish));
+                    StartCoroutine(RemoveFish(bottomLevelFish, state));
                 break;
                 case 2:
-                    StartCoroutine(RemoveFish(midLevelFish));
+                    StartCoroutine(RemoveFish(midLevelFish, state));
                     break;
                 case 3:
-                    StartCoroutine(RemoveFish(apexPreditors));
+                    StartCoroutine(RemoveFish(apexPreditors, state));
+                    break;
+                case 4:
+                    ReefBleached?.Invoke();
                     break;
 
             }
         }
 
-        IEnumerator RemoveFish(List<GameObject> fish)
+        IEnumerator RemoveFish(List<GameObject> fish, bool state)
         {
-            Debug.Log("RemoveFishStarted");
+         
             for (int i = 0; i < fish.Count; i++)
             {
-                float delay = Random.Range(3, 5);
-                fish[i].gameObject.SetActive(false);
+                float delay = UnityEngine.Random.Range(3, 5);
+                fish[i].gameObject.SetActive(state);
                 yield return new WaitForSeconds(delay);
                      
             }
@@ -120,11 +131,18 @@ namespace Bleaching {
 
             _fishFoodChainLevel += 1;
 
-            RemoveFish(_fishFoodChainLevel);
+            RemoveFish(_fishFoodChainLevel, state);
         }
+
+        // this brings fish back when coral count reaches three in fish selector
+        private void BringFishBack()
+        {
+            _fishFoodChainLevel = 1;
+            RemoveFish(_fishFoodChainLevel, true);
+        }
+
+
+
     }
-
-
-
    
 }
