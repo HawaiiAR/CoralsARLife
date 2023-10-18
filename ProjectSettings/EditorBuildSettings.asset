@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Samples/ARCore Extensions/1.39.0/Geospatial Sample/Scenes/Geospatial.unity
+    guid: 1ed15e9657253406185e4b2c7c5a4fc4
+  - enabled: 0
+    path: Assets/Scenes/JordansHouse.unity
+    guid: e805117b8dc7140949460109fb2689e6
+  - enabled: 1
+    path: Assets/Scenes/AquariumAR.unity
+    guid: 950c19fbfec6648e094461da82aac32d
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 25fc453b89c774f74bd77da86168377e,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 4361026d83f334f7f8883c09b04cdcbc,
+      type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 7459c1bfc35ea41ffbb596adee8d4d0e,
+      type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: 336b12216da5e46648266726f67d20ab,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 9b2ae9dacb615496ea07ca1fd018c807,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 7bae489a3b6ce4fd0b303d4fb2f852e2,
+      type: 2}
