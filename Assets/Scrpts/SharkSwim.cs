@@ -25,9 +25,19 @@ namespace Fish {
                 }
             }
 
+            if(state == FishState.isFloating)
+            {
+                _collider.enabled = true;
+            }
+        
             if (state == FishState.isPresenting)
             {
                 PresentFish();
+            }
+            if (state == FishState.isEscaping)
+            {
+                NewTarget();
+                state = FishState.isSwimming;
             }
 
         }
@@ -64,12 +74,22 @@ namespace Fish {
         
         }
 
+        public override void FishSelected()
+        {
+            base.FishSelected();
+        }
+
+        protected override void PresentFish()
+        {
+            base.PresentFish();
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
 
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
             {
-                Debug.Log("turnFromFish");
+               // Debug.Log("turnFromFish");
                 TurnFromTarget(collision.gameObject);
 
 

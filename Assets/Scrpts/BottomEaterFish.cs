@@ -48,11 +48,17 @@ namespace Fish
             }
             if (state == FishState.isFloating)
             {
+              //  _collider.enabled = true;
+                // GetRock();
+            }
+            if(state == FishState.isLookingForFood)
+            {
                 GetRock();
             }
 
             if (state == FishState.isPresenting)
             {
+               
                 PresentFish();
             }
 
@@ -60,6 +66,10 @@ namespace Fish
             {
                 Debug.Log("bottom feeder feeding");
                 Chasingfood(food.transform);
+            }
+            if (state == FishState.isEscaping)
+            {
+                GetRock();
             }
         }
 
@@ -89,29 +99,30 @@ namespace Fish
 
             if (collision.gameObject.CompareTag("Coral"))
             {
-             //   Debug.Log("collidered with rock");
-               // Invoke(nameof(LetTheFishEat), 1);
+         
                 LetTheFishEat();
             }
 
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
             {
                   GetRock();
-              //  TurnFromTarget(collision.gameObject);
-                //  Debug.Log("hit fish");
+           
             }
         }
 
-   
+        public override void FishSelected()
+        {
+            ResetWaitTime();
+            base.FishSelected();
+           
+        }
 
         private void LetTheFishEat()
         {
-          //  Debug.Log("let the fish eat");
             state = FishState.isEating;
             ResetWaitTime();
             _feedAttempts += 1;
-            // Debug.Log("fishState" + state);
-            //  Debug.Log("hit rock");
+          
         }
 
         protected override void FloatTimer(FishState _fishState)
@@ -136,8 +147,8 @@ namespace Fish
 
             if (_feedAttempts >= _full)
             {
-
-                state = FishState.isFloating;
+                //changed from floating
+                state = FishState.isLookingForFood;
                 // Debug.Log("full");
             }
 
@@ -158,6 +169,11 @@ namespace Fish
             _timePassed = _waitTime;
             //   Debug.Log("timePassed" + _timePassed);
 
+        }
+
+        protected override void PresentFish()
+        {
+            base.PresentFish();
         }
     }
 }

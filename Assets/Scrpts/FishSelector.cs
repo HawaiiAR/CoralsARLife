@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Bleaching;
+using TMPro;
 
 namespace Fish
 {
@@ -14,8 +15,9 @@ namespace Fish
         [SerializeField] private Camera _arCamera;
         [SerializeField] private float _rayDistance;
         [SerializeField] private GameObject[] _corals;
-
         [SerializeField] private int _healthyCoral;
+
+         GameObject _fish;
 
         bool _bleached;
         bool _canPlaceCoral;
@@ -24,6 +26,7 @@ namespace Fish
         void Start()
         {
             BleachingExperienceControl.ReefBleached += PlaceCoral;
+            _fish = null;
         }
 
         private void OnDisable()
@@ -54,7 +57,8 @@ namespace Fish
                         if (hit.collider.TryGetComponent(out FishInfo _fishInfo))
                         {
                             _fishInfo.PresentFish();
-                            Debug.Log("fishname" + _fishInfo.name);
+                           // _fish = hit.collider.gameObject;
+                            
                         }
                     }
                     if (_canPlaceCoral && hit.collider.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
@@ -77,6 +81,13 @@ namespace Fish
             int randCoral = UnityEngine.Random.Range(0, _corals.Length);
             Instantiate(_corals[randCoral], coralSpawnPoint, rotation);
             _healthyCoral += 1;
+        }
+
+        public void ReleaseFish()
+        {
+            FishSwim fishSwim = _fish.GetComponent<FishSwim>();
+            fishSwim.state = FishSwim.FishState.isLookingForFood;
+            _fish = null;
         }
     }
 }

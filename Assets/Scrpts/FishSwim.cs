@@ -17,11 +17,10 @@ namespace Fish
             isLookingForFood,
             isBeingFed,
             isPresenting,
-         
+            isEscaping
+
         }
         public GameObject food;
-
-        protected Vector3 target;
 
         [Header("Fish")]      
         [SerializeField] public FishState state;
@@ -30,9 +29,10 @@ namespace Fish
         [SerializeField] protected float _rotSpeed;
         [SerializeField] protected float _waitTime;
         [SerializeField] protected float _distanceToOtherFish;
-       
 
+        protected FishInfo _fishInfo;
         protected float _timePassed;
+        protected Vector3 target;
 
         [Header("tank")]
         [SerializeField] protected Transform _tankCenter;
@@ -42,7 +42,8 @@ namespace Fish
         protected float _distance;
         protected Vector3 _direction;
         protected Vector3 _avoidanceRatio = Vector3.zero;
-
+        // each fish needs a sigle collider, this get turned off when a fish is taged to present
+        protected Collider _collider;
         Rigidbody _rb;
 
         protected virtual void Awake()
@@ -50,16 +51,15 @@ namespace Fish
             _rb = this.GetComponent<Rigidbody>();
             _tankCenter = GameObject.Find("TankCenter").GetComponent<Transform>();
             FoodPellet.FoodGone += FoodGone;
+            _fishInfo = this.GetComponent<FishInfo>();
+            _collider = this.GetComponent<Collider>();
         }
-
 
         // Start is called before the first frame update
         protected virtual void Start()
         {   
-            NewTarget();
-            
+            NewTarget();            
         }
-
 
         protected virtual void OnDisable()
         {
@@ -79,53 +79,57 @@ namespace Fish
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     NewTarget();
                     state = FishState.isLookingForFood;
-
                 }
             }
 
             if (state == FishState.isLookingForFood)
             {
-               // Debug.Log("floating");
                 FloatTimer(FishState.isSwimming);
                 TurnToTarget(target);
             }
 
             if(state == FishState.isFloating)
             {
-               // _state = FishState.isSwimming;
+                _collider.enabled = true;
             }
 
             if(state == FishState.isPresenting)
             {
+               
                 PresentFish();
+
             }
             if(state == FishState.isBeingFed)
             {
                 Chasingfood(food.transform);
+            }
+            if(state == FishState.isEscaping)
+            {
+                Debug.Log("fish trying to escape");
+                NewTarget();
+                state = FishState.isSwimming;
             }
       
         }
 
         protected virtual void NewTarget()
         {
-            
             _timePassed = _waitTime;
             target = new Vector3(
             UnityEngine.Random.Range(_tankCenter.transform.position.x - _tankWidth, _tankCenter.transform.position.x + _tankWidth),
             UnityEngine.Random.Range(_tankCenter.transform.position.y - _tankWidth, _tankCenter.transform.position.y + _tankWidth),
             UnityEngine.Random.Range(_tankCenter.transform.position.z - _tankWidth, _tankCenter.transform.position.z + _tankWidth)
             );
-            // _state = FishState.isSwimming;
 
         }
 
         private void TurnToTarget(Vector3 _target)
         {
-          //  Debug.Log("trun");
             CalculateDistanceAndDirection(_target);
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed * Time.deltaTime);
         }
 
+        //this is supposed to test whether a fish is close to another fish and turn it. needs more testing
         protected virtual void TurnFromTarget(GameObject otherFish)
         {
             if (otherFish != this.gameObject)
@@ -145,7 +149,6 @@ namespace Fish
                     }
                 }
             }
-         
 
         }
 
@@ -154,7 +157,6 @@ namespace Fish
             CalculateDistanceAndDirection(_target);        
                
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
-            //this.transform.position = Vector3.Lerp(this.transform.position, _target, _speed);
             this.transform.Translate(0, 0, _speed * Time.deltaTime);
          
         }
@@ -168,11 +170,9 @@ namespace Fish
             }
             else
             {
-
                 CalculateDistanceAndDirection(food.transform.position);
 
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
-                //this.transform.position = Vector3.Lerp(this.transform.position, _target, _speed);
                 this.transform.Translate(0, 0, _speed * 2 * Time.deltaTime);
             }
 
@@ -192,81 +192,70 @@ namespace Fish
         }
 
         protected virtual void FloatTimer(FishState _fishState)
-        {
-           
+        {         
                 _timePassed -= Time.deltaTime;
 
                 if (_timePassed <= 0)
                 {
                     state = _fishState;
-                    //  _timePassed = _waitTime;
-                  //  Debug.Log("fishState" + state);
-                }
-            
+
+                }           
         }
 
-     
+     public virtual void FishSelected()
+        {
+           
+            _collider.enabled = false;
+         //   StopAllCoroutines();
+            state = FishState.isPresenting;
+        }
 
         protected virtual void PresentFish()
         {
             GameObject _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
-            target = _presentationPoint.transform.position;
-            float _presentationDistance = Vector3.Distance(this.transform.position, target);
+           Vector3 target = _presentationPoint.transform.position;     
 
-            if (_presentationDistance > .1f)
+            float _presentationDistance = Vector3.Distance(this.transform.position, target);
+            Vector3 _dir = this.transform.position - target;
+
+            if (_presentationDistance > .2f)
             {
                 this.transform.position = Vector3.Lerp(transform.position, target, 2 * Time.deltaTime);
-
+                this.transform.rotation = Quaternion.LookRotation(_dir);
             }
 
             if (_presentationDistance < 1)
             {
                 this.transform.rotation = Quaternion.Slerp(transform.rotation, _presentationPoint.transform.rotation, 2 * Time.deltaTime);
             }
+            if(_presentationDistance <= .2)
+            {
+                state = FishState.isFloating;
+                _fishInfo.DisplayFishInformation();
+            }
         }
 
 
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("collision" + collision.gameObject.name);
+//            Debug.Log("collision" + collision.gameObject.name);
 
             if (collision.gameObject.CompareTag("Coral"))     
               {
-                Debug.Log("hit rock");
+              //  Debug.Log("hit rock");
                 state = FishState.isSwimming;
                 NewTarget();
             }
 
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
             {
-                Debug.Log("turnFromFish");
+             //   Debug.Log("turnFromFish");
                 TurnFromTarget(collision.gameObject);
 
 
             }
 
         }
-
-       /* private void OnTriggerEnter(Collider other)
-        {
-            Debug.Log("collision" + other.gameObject.name);
-
-            if (other.gameObject.CompareTag("Coral"))
-            {
-                Debug.Log("hit rock");
-                state = FishState.isLookingForFood;
-                NewTarget();
-            }
-
-            if (other.gameObject.CompareTag("Fish"))
-            {
-
-               state = FishState.isSwimming;
-                TurnFromTarget(other.gameObject);
-            }
-
-        }*/
-
 
     }
 
