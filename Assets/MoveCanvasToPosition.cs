@@ -77,9 +77,12 @@ namespace Info
             {
                 case "grow":
                     Debug.Log(newSize);
+                    
                     while (currentSize < targetSize)
                     {
-                        this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * Time.deltaTime);
+                       // this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * 2 * Time.deltaTime);
+                        this.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
+                        currentSize += _speed * Time.deltaTime;
                         yield return null;
                     }
                     break;
@@ -89,7 +92,9 @@ namespace Info
                     Debug.Log("currentSize" + _currentSize);
                     while (currentSize > targetSize)
                     {
-                        this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * Time.deltaTime);
+                       // this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * 5 * Time.deltaTime);
+                        this.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
+                        currentSize -= _speed * Time.deltaTime;
                         yield return null;
                     }
                     this.gameObject.SetActive(false);
