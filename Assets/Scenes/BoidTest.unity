@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &16239359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &183741235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1180,6 +1180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _arCamera: {fileID: 807894465}
   _rayDistance: 50
+  _corals: []
+  _healthyCoral: 0
 --- !u!114 &807894468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &845452494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2509,13 +2511,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835f6a1a517334d5f8785124528a3593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   state: 0
   _speed: 0.1
   _fish: {fileID: 1514849742}
   _rotSpeed: 0.5
   _waitTime: 2
-  _minFeedtime: 0.5
-  _maxFeedtime: 1
+  _distanceToOtherFish: 0
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
   _rocks:
@@ -2532,6 +2534,8 @@ MonoBehaviour:
   _feedAttempts: 0
   _full: 5
   _floatSpeed: 0.5
+  _minFeedtime: 0.5
+  _maxFeedtime: 1
 --- !u!54 &1514849745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2664,8 +2668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName: bottom fish
-  _fishInformation: 
+  _fishName_txt: 
+  _fishInformation_txt: 
+  _infoCanvas: {fileID: 0}
 --- !u!114 &1514849751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,13 +2735,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835f6a1a517334d5f8785124528a3593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   state: 0
   _speed: 0.1
   _fish: {fileID: 1617390211}
   _rotSpeed: 0.5
   _waitTime: 2
-  _minFeedtime: 0.5
-  _maxFeedtime: 1
+  _distanceToOtherFish: 0
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
   _rocks:
@@ -2753,6 +2758,8 @@ MonoBehaviour:
   _feedAttempts: 0
   _full: 5
   _floatSpeed: 0.5
+  _minFeedtime: 0.5
+  _maxFeedtime: 1
 --- !u!54 &1617390214
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2885,8 +2892,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName: bottom fish
-  _fishInformation: 
+  _fishName_txt: 
+  _fishInformation_txt: 
+  _infoCanvas: {fileID: 0}
 --- !u!114 &1617390220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,7 +3042,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1687611857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3103,13 +3111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e371a21dbdbd245f3b2c89a905f9ec60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   state: 0
   _speed: 0.1
   _fish: {fileID: 1698564568}
   _rotSpeed: 0.5
   _waitTime: 3
-  _minFeedtime: 0
-  _maxFeedtime: 0
+  _distanceToOtherFish: 0
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 5
 --- !u!65 &1698564570
@@ -3259,8 +3267,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName: Fish
-  _fishInformation: Fishy fish fish
+  _fishName_txt: 
+  _fishInformation_txt: 
+  _infoCanvas: {fileID: 0}
 --- !u!114 &1698564577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3423,7 +3432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1780620179
 Transform:
   m_ObjectHideFlags: 0
@@ -3440,7 +3449,6 @@ Transform:
   - {fileID: 1698564573}
   - {fileID: 668083555}
   - {fileID: 2010501739}
-  - {fileID: 2066482118}
   - {fileID: 2103924285}
   - {fileID: 1617390212}
   - {fileID: 1514849743}
@@ -3989,8 +3997,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName: Fish
-  _fishInformation: Fishy fish fish
+  _fishName_txt: 
+  _fishInformation_txt: 
+  _infoCanvas: {fileID: 0}
 --- !u!54 &2010501742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4122,13 +4131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef530b1d1a2e24d9088e8df70506fdda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   state: 0
   _speed: 0.35
   _fish: {fileID: 2010501738}
   _rotSpeed: 0.01
   _waitTime: 0
-  _minFeedtime: 0
-  _maxFeedtime: 0
+  _distanceToOtherFish: 0
   _tankCenter: {fileID: 668083555}
   _tankWidth: 5
 --- !u!1 &2030408613
@@ -4468,12 +4477,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1780620179}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2066482118 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3232344497151615886, guid: 1fb0a7735e1ad4c609318137bd349413,
-    type: 3}
-  m_PrefabInstance: {fileID: 4797965902787152076}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103924278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,13 +4647,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835f6a1a517334d5f8785124528a3593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: {fileID: 0}
   state: 0
   _speed: 0.1
   _fish: {fileID: 2103924278}
   _rotSpeed: 0.5
   _waitTime: 2
-  _minFeedtime: 0.5
-  _maxFeedtime: 1
+  _distanceToOtherFish: 0
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
   _rocks:
@@ -4667,6 +4670,8 @@ MonoBehaviour:
   _feedAttempts: 0
   _full: 5
   _floatSpeed: 0.5
+  _minFeedtime: 0.5
+  _maxFeedtime: 1
 --- !u!114 &2103924287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4680,8 +4685,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName: bottom fish
-  _fishInformation: 
+  _fishName_txt: 
+  _fishInformation_txt: 
+  _infoCanvas: {fileID: 0}
 --- !u!114 &2103924288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4774,7 +4780,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1780620179}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3232344497151615886, guid: 1fb0a7735e1ad4c609318137bd349413,
         type: 3}
@@ -4844,7 +4850,7 @@ PrefabInstance:
     - target: {fileID: 6125879451990767100, guid: 1fb0a7735e1ad4c609318137bd349413,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4857,6 +4863,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 807894466}
   - {fileID: 1650578184}
+  - {fileID: 4797965902787152076}
   - {fileID: 1780620179}
   - {fileID: 16239360}
   - {fileID: 845452495}

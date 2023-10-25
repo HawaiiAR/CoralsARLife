@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/JordansHouse.unity
     guid: e805117b8dc7140949460109fb2689e6
   - enabled: 1
-    path: Assets/Scenes/AquariumAR.unity
+    path: Assets/Scenes/AquariumScenes/Honolulu_AquariumAR.unity
     guid: 950c19fbfec6648e094461da82aac32d
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 25fc453b89c774f74bd77da86168377e,

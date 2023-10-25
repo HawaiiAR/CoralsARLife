@@ -213,7 +213,7 @@ namespace Fish
         protected virtual void PresentFish()
         {
             GameObject _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
-           Vector3 target = _presentationPoint.transform.position;     
+            Vector3 target = _presentationPoint.transform.position;     
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
             Vector3 _dir = this.transform.position - target;
@@ -221,6 +221,10 @@ namespace Fish
             if (_presentationDistance > .2f)
             {
                 this.transform.position = Vector3.Lerp(transform.position, target, 2 * Time.deltaTime);
+               
+            }
+            if(_presentationDistance > 1)
+            {
                 this.transform.rotation = Quaternion.LookRotation(_dir);
             }
 
@@ -228,6 +232,7 @@ namespace Fish
             {
                 this.transform.rotation = Quaternion.Slerp(transform.rotation, _presentationPoint.transform.rotation, 2 * Time.deltaTime);
             }
+
             if(_presentationDistance <= .2)
             {
                 state = FishState.isFloating;

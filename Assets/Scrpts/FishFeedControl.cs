@@ -25,6 +25,7 @@ public class FishFeedControl : MonoBehaviour
                          );
 
         _foodPellet = Instantiate(_food, _instantiationPos, _camera.transform.rotation);
+
         FindHungryFish();
     }
 

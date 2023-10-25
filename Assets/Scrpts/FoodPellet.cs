@@ -20,7 +20,7 @@ namespace Fish
 
         private void Update()
         {
-            _rb.AddForce(Vector3.forward * _speed, ForceMode.Impulse);
+            _rb.AddRelativeForce(Vector3.forward * _speed, ForceMode.Impulse);
         }
 
         private void OnCollisionEnter(Collision collision)
