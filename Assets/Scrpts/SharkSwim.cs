@@ -101,7 +101,7 @@ namespace Fish {
 
         protected override void OnCollisionStay(Collision collision)
         {
-            base.OnCollisionStay(collision);
+           // base.OnCollisionStay(collision);
         }
     }
 }

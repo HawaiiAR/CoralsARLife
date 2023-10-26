@@ -14,7 +14,9 @@ namespace Fish
         [SerializeField] protected float _minFeedtime;
         [SerializeField] protected float _maxFeedtime;
 
-        //private Bounds _rockBounds;
+        private float _fishStuckTimer;
+        private float _time;
+        bool _fishStuck;
 
         protected override void Awake()
         {
@@ -24,6 +26,7 @@ namespace Fish
         protected override void Start()
         { 
             GetRock();
+            _fishStuckTimer = 3;
         }
 
         protected override void OnDisable()
@@ -71,6 +74,19 @@ namespace Fish
             if (state == FishState.isEscaping)
             {
                 GetRock();
+            }
+
+            if (_fishStuck)
+            {
+                
+                _time += Time.deltaTime;
+               
+                if (_time >= _fishStuckTimer)
+                {
+                    StartCoroutine(Escape());
+                    _fishStuck = false;
+                }
+
             }
         }
 
@@ -145,7 +161,6 @@ namespace Fish
                 // Debug.Log("full");
             }
 
-
         }
 
         //if a fish has been selected to go to a players feed pellet it will go back to feeding when the food is gone
@@ -179,6 +194,7 @@ namespace Fish
             {
 
                 LetTheFishEat();
+                StartTimer();
             }
 
          /*   if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
@@ -188,13 +204,51 @@ namespace Fish
             }*/
         }
 
+        //rediculus work around beccause for some reason every once in awhile a fish gets stuck in a rock
+        private void OnCollisionExit(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            {
+
+                _fishStuck = false;
+                Debug.Log("timer stopped");
+            }
+
+        }
+
+        private void StartTimer()
+        {
+            Debug.Log("timer started");
+            _time = 0;
+            _fishStuck = true;
+        }
+
+        private IEnumerator Escape()
+        {
+            transform.Translate(0, 0, 0);
+            float _escapeTime = 0;
+           
+            while (_escapeTime <= 1)
+            {
+                _escapeTime += Time.deltaTime;
+                transform.Translate(0, 0, 5 * Time.deltaTime);
+                yield return null;
+            }
+
+            state = FishState.isLookingForFood;
+            
+            
+        }
+
+
+
         protected override void OnCollisionStay(Collision collision)
         {
             //  base.OnCollisionStay(collision);
-            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            /*if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
             {
                 transform.Translate(0, 0, 5 * Time.deltaTime);
-            }
+            }*/
         }
     }
 }
