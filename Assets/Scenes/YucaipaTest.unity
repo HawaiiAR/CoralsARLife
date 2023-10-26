@@ -12307,11 +12307,11 @@ MonoBehaviour:
   state: 0
   _speed: 1
   _fish: {fileID: 2010501738}
-  _rotSpeed: 0.01
+  _rotSpeed: 0.05
   _waitTime: 0
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 668083555}
-  _tankWidth: 5
+  _tankWidth: 15
 --- !u!1 &2045660251
 GameObject:
   m_ObjectHideFlags: 0

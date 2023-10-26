@@ -55,7 +55,7 @@ namespace Fish {
         {
             float angle = Random.Range(0, 2f * Mathf.PI);
             return center + new Vector3(Mathf.Cos(angle),
-                UnityEngine.Random.Range(0, 5),
+                UnityEngine.Random.Range(-1, 1),
                 Mathf.Sin(angle)) * radius;
         }
 
@@ -67,7 +67,7 @@ namespace Fish {
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
             this.transform.Translate(0, 0, _speed * Time.deltaTime);
            
-            if (_distance < 1f)
+            if (_distance < 3f)
             {    
                 NewTarget();
             }
@@ -84,24 +84,14 @@ namespace Fish {
             base.PresentFish();
         }
 
-      /*  private void OnCollisionEnter(Collision collision)
-        {
-
-            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-               // Debug.Log("turnFromFish");
-                TurnFromTarget(collision.gameObject);
-
-              //  NewTarget();
-              //  state = FishState.isSwimming;
-
-
-            }
-        }*/
 
         protected override void OnCollisionStay(Collision collision)
         {
-           // base.OnCollisionStay(collision);
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            {
+                //  Debug.Log("hit rock");
+                TurnFromTarget(collision.gameObject);
+            }
         }
     }
 }

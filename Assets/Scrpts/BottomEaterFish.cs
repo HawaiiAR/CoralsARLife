@@ -76,6 +76,7 @@ namespace Fish
                 GetRock();
             }
 
+            //this timer gets triggered every time the fish hits a rock, if it gets stuck it waits and then triggers an escape function
             if (_fishStuck)
             {
                 
@@ -95,12 +96,6 @@ namespace Fish
         {
             base.Swim(_target);
         }
-
-        // I don think this is needed any more in favor of GetRock
-       /* protected override void NewTarget()
-        {
-            base.NewTarget();
-        }*/
 
         //after a bottom feeder is full it will get a new rock
         private void GetRock()
@@ -158,7 +153,7 @@ namespace Fish
             {
                 //changed from floating
                 state = FishState.isLookingForFood;
-                // Debug.Log("full");
+            
             }
 
         }
@@ -176,8 +171,7 @@ namespace Fish
         {
             _waitTime = UnityEngine.Random.Range(_minFeedtime, _maxFeedtime);
             _timePassed = _waitTime;
-            //   Debug.Log("timePassed" + _timePassed);
-
+         
         }
 
         //I dont think this need to be here but it doesn't seem to be triggered if it's not
@@ -189,19 +183,12 @@ namespace Fish
         //when a fish hits a rock if it still has feed attempts it will go back to the rock after the float timer is up
         private void OnCollisionEnter(Collision collision)
         {
-
             if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
             {
 
                 LetTheFishEat();
                 StartTimer();
             }
-
-         /*   if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-                GetRock();
-
-            }*/
         }
 
         //rediculus work around beccause for some reason every once in awhile a fish gets stuck in a rock
@@ -209,16 +196,12 @@ namespace Fish
         {
             if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
             {
-
-                _fishStuck = false;
-                Debug.Log("timer stopped");
+                _fishStuck = false;             
             }
-
         }
 
         private void StartTimer()
         {
-            Debug.Log("timer started");
             _time = 0;
             _fishStuck = true;
         }
@@ -236,19 +219,13 @@ namespace Fish
             }
 
             state = FishState.isLookingForFood;
-            
-            
+                    
         }
-
 
 
         protected override void OnCollisionStay(Collision collision)
         {
-            //  base.OnCollisionStay(collision);
-            /*if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
-            {
-                transform.Translate(0, 0, 5 * Time.deltaTime);
-            }*/
+           //this has to be here to override the base functionality
         }
     }
 }

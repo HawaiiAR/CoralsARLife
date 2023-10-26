@@ -288,8 +288,8 @@ namespace Fish
 
         protected virtual void OnCollisionStay(Collision collision)
         {
-            if (collision.gameObject.CompareTag("Coral"))
-            {
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+                {
                 //  Debug.Log("hit rock");
                 state = FishState.isSwimming;
                 NewTarget();
