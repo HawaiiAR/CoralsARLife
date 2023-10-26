@@ -11,7 +11,7 @@ namespace Info
 
         public TMP_Text fishName;
         public TMP_Text fishInfo;
-        // public Vector3 target;
+        
         [SerializeField] private FishSwim fishSwim;
 
         [SerializeField] private float _speed;
@@ -27,32 +27,28 @@ namespace Info
             this.transform.localScale = _startSize;
         }
 
+        //sets the canvas size to zero on start
         private void OnEnable()
         {
             this.transform.localScale = _startSize;
             GrowCanvas();
-
         }
 
+        //when a canvas is disable sets its size back to zero
         private void OnDisable()
         {
             this.transform.localScale = _startSize;
         }
-
-
-        // Update is called once per frame
+        
         void Update()
         {
+            // for testing purposes in scene need to figure out a way to pick a new fish
             if (Input.GetKeyDown("r"))
             {
                 ReleaseFish();
             }
         }
-
-        public void MoveCanvas()
-        {
-            //  StartCoroutine(MoveCanvasToFishPosition());
-        }
+ 
 
         public void GrowCanvas()
         {
@@ -65,22 +61,19 @@ namespace Info
         {
             _currentSize = _maxSize;
             StartCoroutine(GrowShrink(_currentSize, _minSize, "shrink"));
-
-
         }
 
+        //is there a way to pass an operand as a peramiter, would be better than a switch to change -= to +=
         private IEnumerator GrowShrink(float currentSize, float targetSize, string growShrink)
         {
-            Vector3 newSize = new Vector3(targetSize, targetSize, targetSize);
+           // Vector3 newSize = new Vector3(targetSize, targetSize, targetSize);
 
             switch (growShrink)
             {
                 case "grow":
-                    Debug.Log(newSize);
-                    
+               
                     while (currentSize < targetSize)
                     {
-                       // this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * 2 * Time.deltaTime);
                         this.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
                         currentSize += _speed * Time.deltaTime;
                         yield return null;
@@ -88,11 +81,9 @@ namespace Info
                     break;
 
                 case "shrink":
-                    Debug.Log("new" + newSize);
-                    Debug.Log("currentSize" + _currentSize);
+             
                     while (currentSize > targetSize)
                     {
-                       // this.transform.localScale = Vector3.Lerp(this.transform.localScale, newSize, _speed * 5 * Time.deltaTime);
                         this.transform.localScale = new Vector3(currentSize, currentSize, currentSize);
                         currentSize -= _speed * Time.deltaTime;
                         yield return null;
@@ -100,26 +91,12 @@ namespace Info
                     this.gameObject.SetActive(false);
 
                     break;
-
             }
-      
-          
+       
         }
 
-        /* private IEnumerator MoveCanvasToFishPosition()
-          {
-              while (Vector3.Distance(this.transform.position, target) > .1f)
-              {
-                  this.transform.localScale = Vector3.Lerp(_startSize, _EndSize, _speed * Time.deltaTime);
-                  this.transform.position = Vector3.Lerp(this.transform.position, target, Vector3.Distance(this.transform.position, target) * Time.deltaTime);
-
-                  yield return null;
-              }
-
-              Debug.Log("canvas hit pos");
-           //   StopAllCoroutines();
-          }*/
-
+     
+        // this is triggered from a button on the canvas to let the fish go. Would be nice to have the fish released if another fish is selected
         public void ReleaseFish()
         {
             fishSwim.state = FishSwim.FishState.isEscaping;

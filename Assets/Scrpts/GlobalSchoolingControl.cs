@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Fish
 {
+    //this controls schooling fish behaviour should be used as a base for different schools of fish if we get that far
     public class GlobalSchoolingControl : MonoBehaviour
     {
 
@@ -14,12 +15,10 @@ namespace Fish
 
         [SerializeField] private GameObject _fish;
         [SerializeField] private int _fishCount;
-       // [SerializeField] private int _fishInSchool;
+      
 
         private void Awake()
-        {
-            
-            //_fishCount = _fishInSchool;
+        {  
             fishSchool = new GameObject[_fishCount];
         }
 
@@ -28,6 +27,7 @@ namespace Fish
         {
             SetNewTarget();
 
+            //instantiates a group of fish based on the _fish gameobject
             for (int i = 0; i < _fishCount; i++)
             {
 
@@ -42,7 +42,6 @@ namespace Fish
                    Random.Range(tankCenter.transform.position.z - tankSize, tankCenter.transform.position.z + tankSize));
 
                 fishSchool[i] = Instantiate(_fish, startPos, Quaternion.identity);
-              //  fishSchool[i].transform.position = tankCenter.transform.position + offset;
                 fishSchool[i].transform.parent = tankCenter;
               
             }
@@ -52,6 +51,7 @@ namespace Fish
         // Update is called once per frame
         void Update()
         {
+            //timer to set a new position every once in a while so the fish swim in different directions
             if (Random.Range(500, 1000) < 10)
             {
                 SetNewTarget();
@@ -59,6 +59,7 @@ namespace Fish
             }
         }
 
+        //new target for fish to follow
         private void SetNewTarget()
         {
             Debug.Log("new target");

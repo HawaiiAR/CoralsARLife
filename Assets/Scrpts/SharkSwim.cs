@@ -44,14 +44,13 @@ namespace Fish {
 
         protected override void NewTarget()
         {
-         
-
-            float _randomRadius = Random.Range(1, _tankWidth);
-
+            //randomizes the circle width the shark swims to make it a little less mechanical
+            float _randomRadius = Random.Range(_tankWidth - .5f, _tankWidth);
             target = RandomPointOnXZCircle(_tankCenter.transform.position, _randomRadius);
             
         }
 
+        //this picks a random point on a circle to keep the shark swimming in somewhat of a circular pattern
         Vector3 RandomPointOnXZCircle(Vector3 center, float radius)
         {
             float angle = Random.Range(0, 2f * Mathf.PI);
@@ -60,6 +59,7 @@ namespace Fish {
                 Mathf.Sin(angle)) * radius;
         }
 
+        //called when a shark is swimming
         protected override void Swim(Vector3 _target)
         {
             CalculateDistanceAndDirection(_target);
@@ -84,7 +84,7 @@ namespace Fish {
             base.PresentFish();
         }
 
-        private void OnCollisionEnter(Collision collision)
+      /*  private void OnCollisionEnter(Collision collision)
         {
 
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
@@ -92,8 +92,16 @@ namespace Fish {
                // Debug.Log("turnFromFish");
                 TurnFromTarget(collision.gameObject);
 
+              //  NewTarget();
+              //  state = FishState.isSwimming;
+
 
             }
+        }*/
+
+        protected override void OnCollisionStay(Collision collision)
+        {
+            base.OnCollisionStay(collision);
         }
     }
 }

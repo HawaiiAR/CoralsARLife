@@ -6787,7 +6787,7 @@ MonoBehaviour:
   - {fileID: 450170310}
   _feedAttempts: 0
   _full: 5
-  _floatSpeed: 0.5
+  _floatSpeed: 0.65
   _minFeedtime: 0.5
   _maxFeedtime: 1
 --- !u!54 &1308928387
@@ -7069,7 +7069,7 @@ MonoBehaviour:
   - {fileID: 450170310}
   _feedAttempts: 0
   _full: 5
-  _floatSpeed: 0.5
+  _floatSpeed: 0.75
   _minFeedtime: 0.5
   _maxFeedtime: 1
 --- !u!54 &1313059884
@@ -8004,7 +8004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c011e6baab1694ac8876b7805c11c7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 1451910690}
+  _camera: {fileID: 807894463}
   _food: {fileID: 6302365899790385166, guid: 13010fd9423264cf69816827e6865e45, type: 3}
   _fish: []
   _feedingFish: []
@@ -9575,8 +9575,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1870163613}
   m_Father: {fileID: 1780620179}
@@ -9600,7 +9600,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1.190465
+  m_Radius: 0.91377234
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1698564575
 Rigidbody:
@@ -12239,7 +12239,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.58431363
+  m_Radius: 0.4633908
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2010501746
 MeshRenderer:

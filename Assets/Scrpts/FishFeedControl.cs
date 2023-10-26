@@ -15,13 +15,14 @@ public class FishFeedControl : MonoBehaviour
     public List<GameObject> _feedingFish = new List<GameObject>();
     int _hungryFish;
     
-  
+
+    //releases a food pelet the pelet has a script that pushes it forward
     public void InstantiateFood()
     {
         Vector3 _instantiationPos =
             new Vector3(_camera.transform.position.x,
                         _camera.transform.position.y,
-                        _camera.transform.position.z + .5f
+                        _camera.transform.position.z + 1f
                          );
 
         _foodPellet = Instantiate(_food, _instantiationPos, _camera.transform.rotation);
@@ -29,19 +30,21 @@ public class FishFeedControl : MonoBehaviour
         FindHungryFish();
     }
 
+    //gets a random selection from the fish in the scene then picks some of those fish to swim towards the fud
     private void FindHungryFish()
-    {
-        
+    {      
         _hungryFish = UnityEngine.Random.Range(5, _fish.Count);
-        Debug.Log("hungryFish" + _hungryFish);
         _fish.AddRange(GameObject.FindGameObjectsWithTag("Fish"));
         _fish.AddRange(GameObject.FindGameObjectsWithTag("SchoolingFish"));
 
+        //creates a list of random hungry fish to go get food
         _feedingFish = GetRandomHungryFish(_fish, _hungryFish);
 
+        //feeds those hungry fish
         Invoke(nameof(FeedTheHungryFish), 2);
     }
 
+    //sets the move target of the hungry fish to the fod pelet
     private void FeedTheHungryFish()
     {
         foreach (GameObject fish in _feedingFish)
@@ -52,6 +55,7 @@ public class FishFeedControl : MonoBehaviour
         }
     }
 
+    //gets a random number of fish that are hungry
     List<T> GetRandomHungryFish<T>(List<T> fish, int hungryFishCount)
     {
         List<T> _feedingFish = new List<T>();
@@ -64,7 +68,7 @@ public class FishFeedControl : MonoBehaviour
         return _feedingFish;
     }
 
-
+    //when a pelet is destroyed the hungry fish are released and sent back to feed
     private void ClearList()
     {
         _feedingFish.Clear();

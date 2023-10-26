@@ -19,6 +19,7 @@ namespace Fish
 
          GameObject _fish;
 
+        bool _bleachingStarted;
         bool _bleached;
         bool _canPlaceCoral;
 
@@ -26,41 +27,53 @@ namespace Fish
         void Start()
         {
             BleachingExperienceControl.ReefBleached += PlaceCoral;
+            BleachingExperienceControl.BleachingStarted += BleachingStarted;
             _fish = null;
         }
 
         private void OnDisable()
         {
             BleachingExperienceControl.ReefBleached -= PlaceCoral;
+            BleachingExperienceControl.BleachingStarted -= BleachingStarted;
         }
 
+        //keeps player from being able to select fish once bleaching has started
+        private void BleachingStarted()
+        {
+            _bleachingStarted = true;
+        }
+        //allows players to seed coral and replenish the reef
         private void PlaceCoral()
         {
+            _bleachingStarted = false;
             _bleached = true;
             _canPlaceCoral = true;
         }
 
-        // Update is called once per frame
+       
         void Update()
         {
             if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
             {
-                //  Touch touch = Input.GetTouch(0);
+                //this  needs to be switched out for touch to work with mobile//////////////////////////////////////////////
+                // Touch touch = Input.GetTouch(0);
                 // Ray ray = _arCamera.ScreenPointToRay(touch.position);
+
                 Ray ray = _arCamera.ScreenPointToRay(Input.mousePosition);
-                // Debug.DrawRay()
+           
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, _rayDistance))
                 {
                     if (!_bleached)
                     {
-                        if (hit.collider.TryGetComponent(out FishInfo _fishInfo))
+                        //allows a player to select fish if bleaching hasn't started
+                        if (!_bleachingStarted && hit.collider.TryGetComponent(out FishInfo _fishInfo))
                         {
-                            _fishInfo.PresentFish();
-                           // _fish = hit.collider.gameObject;
+                            _fishInfo.PresentFish();   
                             
                         }
                     }
+                    //allows player to place coral where the raycast hits the target
                     if (_canPlaceCoral && hit.collider.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
                     {
                         var hitRot = Quaternion.LookRotation(hit.normal);
@@ -69,13 +82,16 @@ namespace Fish
                 }
             }
 
+            // totally forgot I added this, now if coral is gone you should be able to tap and add new coral back into the scene(red cubes)
             if(_healthyCoral >= 3 && _bleached)
             {
+                //this will start to bring coral back
                 CoralRestored?.Invoke();
                 _bleached = false;
             }
         }
 
+        //ads new coral on previous coral at intersection of raycast
         private void SeedCoral(Vector3 coralSpawnPoint, Quaternion rotation)
         {
             int randCoral = UnityEngine.Random.Range(0, _corals.Length);

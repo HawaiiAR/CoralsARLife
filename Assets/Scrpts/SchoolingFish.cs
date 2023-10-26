@@ -32,7 +32,7 @@ namespace Fish
            
         }
 
-        // Start is called before the first frame update
+        //sets a random speed and rotation speed for the fish
         protected override void Start()
         {
            
@@ -170,7 +170,7 @@ namespace Fish
             base.PresentFish();
         }
 
-        private void OnTriggerEnter(Collider other)
+       /* private void OnTriggerEnter(Collider other)
         {
           //  Debug.Log("hit rock");
             if (other.gameObject.CompareTag("Rock"))
@@ -187,6 +187,23 @@ namespace Fish
 
             }
           
+        }*/
+
+        protected override void OnCollisionStay(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral Rock))
+            {
+                UpdateCondition();
+                TurnFromTarget(collision.gameObject);
+            }
+
+            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+            {
+                // Debug.Log("turnFromFish");
+                TurnFromTarget(collision.gameObject);
+
+
+            }
         }
     }
 

@@ -8,6 +8,7 @@ namespace Bleaching {
 
     public class BleachingExperienceControl : MonoBehaviour
     {
+        public static Action BleachingStarted;
         public static Action ReefBleached;
 
         public List<GameObject> corals = new List<GameObject>();
@@ -30,15 +31,9 @@ namespace Bleaching {
             FishSelector.CoralRestored -= BringFishBack;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown("b"))
-            {
-                StartBleachingSequence();
-            }
-        }
+    
 
+        //gets all the fish in their strata and devies them up
         public void AddFishToList(int level, GameObject fish)
         {
             switch (level)
@@ -64,14 +59,13 @@ namespace Bleaching {
             StartCoroutine(BleachingSequence());
         }
 
+        // going to move this to a timeline for more specific control and making it more modular
         private IEnumerator BleachingSequence()
         {
             float delay = UnityEngine.Random.Range(.5f, 1);
             foreach (GameObject c in corals)
             {
-               
-             //   float delay = Random.Range(.5f, 1);
-             //   Renderer rend = corals[i].GetComponent<Renderer>();
+  
                 Renderer rend = c.GetComponent<Renderer>();
                 float _time = 0;
                 _colorFadeTime = UnityEngine.Random.Range(1, 5);
@@ -116,6 +110,7 @@ namespace Bleaching {
             }
         }
 
+        //removes fish in sequence would me nice to make the fish fade out instead of turn off abruptly
         IEnumerator RemoveFish(List<GameObject> fish, bool state)
         {
          

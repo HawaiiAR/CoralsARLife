@@ -6,7 +6,7 @@ namespace Fish
     [RequireComponent(typeof(FishInfo))]
     public class BottomEaterFish : FishSwim
     {
-
+        //bottom feeders go from rock to rock pecking at the rock looking for food
         [SerializeField] private Transform[] _rocks;
         [SerializeField] private int _feedAttempts;
         [SerializeField] private int _full;
@@ -14,15 +14,15 @@ namespace Fish
         [SerializeField] protected float _minFeedtime;
         [SerializeField] protected float _maxFeedtime;
 
-        private Bounds _rockBounds;
+        //private Bounds _rockBounds;
 
         protected override void Awake()
         {
             base.Awake();
         }
-        // Start is called before the first frame update
+      
         protected override void Start()
-        {
+        { 
             GetRock();
         }
 
@@ -31,7 +31,7 @@ namespace Fish
             FoodPellet.FoodGone -= FoodGone;
         }
 
-        // Update is called once per frame
+
         void Update()
         {
             if (state == FishState.isSwimming)
@@ -40,6 +40,7 @@ namespace Fish
            
             }
 
+            //sends the fish back to the rock it game from if there are still feed attempts
             if (state == FishState.isEating)
             {
                 Feed(target);
@@ -79,11 +80,13 @@ namespace Fish
             base.Swim(_target);
         }
 
-        protected override void NewTarget()
+        // I don think this is needed any more in favor of GetRock
+       /* protected override void NewTarget()
         {
             base.NewTarget();
-        }
+        }*/
 
+        //after a bottom feeder is full it will get a new rock
         private void GetRock()
         {
           //  Debug.Log("GetRock");
@@ -94,22 +97,9 @@ namespace Fish
             state = FishState.isSwimming;
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
+   
 
-            if (collision.gameObject.CompareTag("Coral"))
-            {
-         
-                LetTheFishEat();
-            }
-
-            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-                  GetRock();
-           
-            }
-        }
-
+        //this is the fish presentation state
         public override void FishSelected()
         {
             ResetWaitTime();
@@ -117,6 +107,7 @@ namespace Fish
            
         }
 
+        //resets the float timer when a fish hits a rock
         private void LetTheFishEat()
         {
             state = FishState.isEating;
@@ -125,12 +116,14 @@ namespace Fish
           
         }
 
+        //this is triggered when the fish 
         protected override void FloatTimer(FishState _fishState)
         {
 
             base.FloatTimer(_fishState);
         }
 
+        //the fish will float backward away from the rock it is feeding on until the float timer is up, then it will go back to the rock if there are still feedattempts
         private void Feed(/*int feedAttempts,*/ Vector3 target)
         {
          //   Debug.Log("feed me");
@@ -144,7 +137,7 @@ namespace Fish
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
            
-
+            //sends the fish to a new rock if the fish is full
             if (_feedAttempts >= _full)
             {
                 //changed from floating
@@ -155,6 +148,7 @@ namespace Fish
 
         }
 
+        //if a fish has been selected to go to a players feed pellet it will go back to feeding when the food is gone
         protected override void FoodGone()
         {
             food = null;
@@ -162,7 +156,7 @@ namespace Fish
 
         }
 
-
+        //resets the timer of float timer
         private void ResetWaitTime()
         {
             _waitTime = UnityEngine.Random.Range(_minFeedtime, _maxFeedtime);
@@ -171,9 +165,36 @@ namespace Fish
 
         }
 
+        //I dont think this need to be here but it doesn't seem to be triggered if it's not
         protected override void PresentFish()
         {
             base.PresentFish();
+        }
+
+        //when a fish hits a rock if it still has feed attempts it will go back to the rock after the float timer is up
+        private void OnCollisionEnter(Collision collision)
+        {
+
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            {
+
+                LetTheFishEat();
+            }
+
+         /*   if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+            {
+                GetRock();
+
+            }*/
+        }
+
+        protected override void OnCollisionStay(Collision collision)
+        {
+            //  base.OnCollisionStay(collision);
+            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            {
+                transform.Translate(0, 0, 5 * Time.deltaTime);
+            }
         }
     }
 }

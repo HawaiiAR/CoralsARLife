@@ -12,7 +12,7 @@ namespace Fish
         [SerializeField] private float _speed;
         Rigidbody _rb;
 
-        // Start is called before the first frame update
+       
         void Start()
         {
             _rb = this.GetComponent<Rigidbody>();
@@ -25,10 +25,9 @@ namespace Fish
 
         private void OnCollisionEnter(Collision collision)
         {
-       
-                if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-                {
-                 
+            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+            {
+
                 FoodGone?.Invoke();
                 Destroy(this.gameObject);
             }
