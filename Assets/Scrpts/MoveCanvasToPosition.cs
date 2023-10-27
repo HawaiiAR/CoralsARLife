@@ -12,30 +12,33 @@ namespace Info
         public TMP_Text fishName;
         public TMP_Text fishInfo;
         
-        [SerializeField] private FishSwim fishSwim;
+        [SerializeField] protected FishSwim fishSwim;
 
-        [SerializeField] private float _speed;
+        [SerializeField] protected float _speed;
         Vector3 _startSize = Vector3.zero;
         Vector3 _EndSize = Vector3.one;
-        float _currentSize;
-        float _maxSize = 1;
-        float _minSize = 0;
+        protected float _currentSize;
+        protected float _maxSize = 1;
+        protected float _minSize = 0;
 
-        private void Start()
+       public bool isStoryFish = false;
+
+        protected virtual void Start()
         {
             fishSwim = GetComponentInParent<FishSwim>();
             this.transform.localScale = _startSize;
+
         }
 
         //sets the canvas size to zero on start
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             this.transform.localScale = _startSize;
             GrowCanvas();
         }
 
         //when a canvas is disable sets its size back to zero
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             this.transform.localScale = _startSize;
         }
@@ -48,23 +51,23 @@ namespace Info
                 ReleaseFish();
             }
         }
- 
 
-        public void GrowCanvas()
+
+        protected virtual void GrowCanvas()
         {
             _currentSize = _minSize;
             StartCoroutine(GrowShrink(_currentSize, _maxSize, "grow"));
 
         }
 
-        public void ShrinkCanvas()
+        protected virtual void ShrinkCanvas()
         {
             _currentSize = _maxSize;
             StartCoroutine(GrowShrink(_currentSize, _minSize, "shrink"));
         }
 
         //is there a way to pass an operand as a peramiter, would be better than a switch to change -= to +=
-        private IEnumerator GrowShrink(float currentSize, float targetSize, string growShrink)
+        protected virtual IEnumerator GrowShrink(float currentSize, float targetSize, string growShrink)
         {
            // Vector3 newSize = new Vector3(targetSize, targetSize, targetSize);
 
@@ -99,7 +102,12 @@ namespace Info
         // this is triggered from a button on the canvas to let the fish go. Would be nice to have the fish released if another fish is selected
         public void ReleaseFish()
         {
-            fishSwim.state = FishSwim.FishState.isEscaping;
+            //ban practice but running out of time
+            if (!isStoryFish)
+            {
+                fishSwim.state = FishSwim.FishState.isEscaping;
+            }
+
             ShrinkCanvas();
 
         }

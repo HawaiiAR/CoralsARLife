@@ -156,6 +156,7 @@ namespace Fish
         protected override void FoodGone()
         {
             food = null;
+            isFeeding = false;
             state = FishState.isSwimming;
            
         }
@@ -191,18 +192,21 @@ namespace Fish
 
         protected override void OnCollisionStay(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral Rock))
+            if (!isFeeding)
             {
-                UpdateCondition();
-                TurnFromTarget(collision.gameObject);
-            }
+                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral Rock))
+                {
+                    UpdateCondition();
+                    TurnFromTarget(collision.gameObject);
+                }
 
-            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-                // Debug.Log("turnFromFish");
-                TurnFromTarget(collision.gameObject);
+                if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+                {
+                    // Debug.Log("turnFromFish");
+                    TurnFromTarget(collision.gameObject);
 
 
+                }
             }
         }
     }

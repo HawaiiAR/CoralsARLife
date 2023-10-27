@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Fish;
+using UnityEngine.Playables;
 
 namespace Bleaching {
 
@@ -18,6 +19,7 @@ namespace Bleaching {
         // Start is called before the first frame update
 
         [SerializeField] private float _colorFadeTime;
+        [SerializeField] private PlayableDirector _bleachingDirector;
         private int _fishFoodChainLevel;
 
 
@@ -54,13 +56,19 @@ namespace Bleaching {
             }
         }
 
+        public void StartBleachingTimeline()
+        {
+            _bleachingDirector.Play();
+        }
+
         public void StartBleachingSequence()
         {
             StartCoroutine(BleachingSequence());
+            
         }
 
         // going to move this to a timeline for more specific control and making it more modular
-        private IEnumerator BleachingSequence()
+        public IEnumerator BleachingSequence()
         {
             float delay = UnityEngine.Random.Range(.5f, 1);
             foreach (GameObject c in corals)
@@ -82,26 +90,26 @@ namespace Bleaching {
                // yield return new WaitForSeconds(delay);
             }
 
-            yield return new WaitForSeconds(delay);
+          /*  yield return new WaitForSeconds(delay);
 
             _fishFoodChainLevel = 1;
 
-            RemoveFish(_fishFoodChainLevel, false);
+            RemoveFish(_fishFoodChainLevel, false);*/
         }
 
         //by calling fish int and bool this can be recycled to bring fish back
-        private void RemoveFish(int fishStrata, bool state)
+        public void RemoveFish(int fishStrata)
         {  
 
             switch(fishStrata){
                 case 1:
-                    StartCoroutine(RemoveFish(bottomLevelFish, state));
+                    StartCoroutine(RemoveFish(bottomLevelFish, false));
                 break;
                 case 2:
-                    StartCoroutine(RemoveFish(midLevelFish, state));
+                    StartCoroutine(RemoveFish(midLevelFish, false));
                     break;
                 case 3:
-                    StartCoroutine(RemoveFish(apexPreditors, state));
+                    StartCoroutine(RemoveFish(apexPreditors, false));
                     break;
                 case 4:
                     ReefBleached?.Invoke();
@@ -109,6 +117,8 @@ namespace Bleaching {
 
             }
         }
+
+   
 
         //removes fish in sequence would me nice to make the fish fade out instead of turn off abruptly
         IEnumerator RemoveFish(List<GameObject> fish, bool state)
@@ -124,16 +134,56 @@ namespace Bleaching {
 
             yield return new WaitForSeconds(1);
 
+           // _fishFoodChainLevel += 1;
+
+          //  RemoveFish(_fishFoodChainLevel);
+        }
+
+        public void RestoreFish(int fishStrata)
+        {
+
+            switch (fishStrata)
+            {
+                case 1:
+                    StartCoroutine(RestoreFish(bottomLevelFish, true));
+                    break;
+                case 2:
+                    StartCoroutine(RestoreFish(midLevelFish, true));
+                    break;
+                case 3:
+                    StartCoroutine(RestoreFish(apexPreditors, true));
+                    break;
+                case 4:
+                    ReefBleached?.Invoke();
+                    break;
+
+            }
+        }
+
+        IEnumerator RestoreFish(List<GameObject> fish, bool state)
+        {
+
+            for (int i = 0; i < fish.Count; i++)
+            {
+                float delay = UnityEngine.Random.Range(3, 5);
+                fish[i].gameObject.SetActive(state);
+                yield return new WaitForSeconds(delay);
+
+            }
+
+            yield return new WaitForSeconds(1);
+
             _fishFoodChainLevel += 1;
 
-            RemoveFish(_fishFoodChainLevel, state);
+            RemoveFish(_fishFoodChainLevel);
         }
 
         // this brings fish back when coral count reaches three in fish selector
         private void BringFishBack()
         {
             _fishFoodChainLevel = 1;
-            RemoveFish(_fishFoodChainLevel, true);
+           // RemoveFish(_fishFoodChainLevel, true);
+            RestoreFish(_fishFoodChainLevel);
         }
 
 

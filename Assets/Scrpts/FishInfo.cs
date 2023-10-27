@@ -21,14 +21,17 @@ namespace Fish
         [TextArea(1, 1)]
         [SerializeField] private string _fishName_txt;
         [TextArea(2, 5)]
-        [SerializeField] private string _fishInformation_txt;
+        [SerializeField] protected string _fishInformation_txt;
+        [TextArea(2, 5)]
+        [SerializeField] protected string _storyTwoInfo_txt;
 
-        [SerializeField] private GameObject _infoCanvas;
+        [SerializeField] protected GameObject _infoCanvas;
         MoveCanvasToPosition _moveCanvas;
 
+        public bool isStoryFish;
      
         // Start is called before the first frame update
-        void Start()
+        protected virtual void Start()
         {
             _infoCanvas.SetActive(false);
             _fishSwim = this.GetComponent<FishSwim>();
@@ -37,20 +40,36 @@ namespace Fish
         }
 
         //gets the fish this is attatched to and makes it move to the presentation point
-        public void PresentFish()
+        public virtual void PresentFish()
         {
             _fishSwim.FishSelected();
         }
 
+        public void StoryToTell(int storyNum)
+        {
+            switch(storyNum)
+            {
+                case 0:
+                    _moveCanvas.fishName.text = _fishName_txt;
+                    _moveCanvas.fishInfo.text = _fishInformation_txt;
+                    
+                    break;
+                case 1:
+                    _moveCanvas.fishName.text = _fishName_txt;
+                    _moveCanvas.fishInfo.text = _storyTwoInfo_txt;
+                   
+                    break;
+            }
+            _infoCanvas.SetActive(true);
+        }
+
         //gets called when fish reaches display position
-        public void DisplayFishInformation()
+        public virtual void DisplayFishInformation()
         {
 
             _infoCanvas.SetActive(true); 
-            _moveCanvas.fishName.text = _fishName_txt;
-            _moveCanvas.fishInfo.text = _fishInformation_txt;        
-            _moveCanvas.fishName.text = _fishName_txt;
-            _moveCanvas.fishInfo.text = _fishInformation_txt;
+         
+         
 
         }
 

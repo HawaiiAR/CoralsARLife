@@ -162,6 +162,7 @@ namespace Fish
         protected override void FoodGone()
         {
             food = null;
+            isFeeding = false;
             GetRock();
 
         }
@@ -183,20 +184,25 @@ namespace Fish
         //when a fish hits a rock if it still has feed attempts it will go back to the rock after the float timer is up
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            if (!isFeeding)
             {
-
-                LetTheFishEat();
-                StartTimer();
+                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+                {
+                    LetTheFishEat();
+                    StartTimer();
+                }
             }
         }
 
         //rediculus work around beccause for some reason every once in awhile a fish gets stuck in a rock
         private void OnCollisionExit(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+            if (!isFeeding)
             {
-                _fishStuck = false;             
+                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+                {
+                    _fishStuck = false;
+                }
             }
         }
 

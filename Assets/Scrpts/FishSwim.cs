@@ -19,8 +19,7 @@ namespace Fish
             isLookingForFood,
             isBeingFed,
             isPresenting,
-            isEscaping,
-          
+            isEscaping
 
         }
 
@@ -50,23 +49,24 @@ namespace Fish
         // each fish needs a sigle collider, this get turned off when a fish is taged to present to avoid it hitting another fish
         //and changing direction
         protected Collider _collider;
+        protected bool isFeeding;
         Rigidbody _rb;
 
         protected virtual void Awake()
         {
             FoodPellet.FoodGone += FoodGone;
 
-            _rb = this.GetComponent<Rigidbody>();
-
             _tankCenter = GameObject.Find("TankCenter").GetComponent<Transform>();
             
             _fishInfo = this.GetComponent<FishInfo>();
             _collider = this.GetComponent<Collider>();
+            _rb = this.GetComponent<Rigidbody>();
         }
 
         // Start is called before the first frame update
         protected virtual void Start()
-        {   
+        {
+            
             NewTarget();            
         }
 
@@ -110,7 +110,7 @@ namespace Fish
 
             if(state == FishState.isEscaping)
             {
-                Debug.Log("fish trying to escape");
+               // Debug.Log("fish trying to escape");
                 NewTarget();
                 state = FishState.isSwimming;
             }
@@ -130,7 +130,7 @@ namespace Fish
         }
 
         //turns the fish towards its new target so it has a nice smooth motion
-        private void TurnToTarget(Vector3 _target)
+        protected virtual void TurnToTarget(Vector3 _target)
         {
             CalculateDistanceAndDirection(_target);
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed * Time.deltaTime);
@@ -185,6 +185,8 @@ namespace Fish
             }
             else
             {
+
+                isFeeding = true;
                 CalculateDistanceAndDirection(food.transform.position);
 
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
@@ -197,6 +199,7 @@ namespace Fish
         protected virtual void FoodGone()
         {
             state = FishState.isSwimming;
+            isFeeding = false;
             food = null;
             NewTarget();
         }
@@ -259,52 +262,56 @@ namespace Fish
             {
                 
                 state = FishState.isFloating;
-                _fishInfo.DisplayFishInformation();
+                _fishInfo.StoryToTell(0);
             }
         }
 
         //a clumsy attemt at phyisics based avoidance. Each fish has a substantially larger collider that should make it turn before the fish mesh reaches another fish mesh
-       /* private void OnCollisionEnter(Collision collision)
-        {
-//            Debug.Log("collision" + collision.gameObject.name);
+        /* private void OnCollisionEnter(Collision collision)
+         {
+ //            Debug.Log("collision" + collision.gameObject.name);
 
-            if (collision.gameObject.CompareTag("Coral"))     
-              {
-              //  Debug.Log("hit rock");
-                state = FishState.isSwimming;
-                NewTarget();
-            }
+             if (collision.gameObject.CompareTag("Coral"))     
+               {
+               //  Debug.Log("hit rock");
+                 state = FishState.isSwimming;
+                 NewTarget();
+             }
 
-            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-                //   Debug.Log("turnFromFish");
-              
-                TurnFromTarget(collision.gameObject);
+             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+             {
+                 //   Debug.Log("turnFromFish");
+
+                 TurnFromTarget(collision.gameObject);
 
 
-            }
+             }
 
-        }*/
+         }*/
 
+
+        // need to add a check in here if the fish is feeding
         protected virtual void OnCollisionStay(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
-                {
-                //  Debug.Log("hit rock");
-                state = FishState.isSwimming;
-                NewTarget();
-            }
-
-            if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+            if (!isFeeding)
             {
-                //   Debug.Log("turnFromFish");
-                
-                TurnFromTarget(collision.gameObject);
+                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+                {
+                    //  Debug.Log("hit rock");
+                    state = FishState.isSwimming;
+                    NewTarget();
+                }
+
+                if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+                {
+                    //   Debug.Log("turnFromFish");
+
+                    TurnFromTarget(collision.gameObject);
 
 
+                }
             }
         }
-
     }
 
 }
