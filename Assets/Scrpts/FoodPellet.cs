@@ -7,7 +7,8 @@ namespace Fish
 {
     public class FoodPellet : MonoBehaviour
     {
-        public static Action FoodGone;
+        public delegate void FoodDestoyed();
+        public static event FoodDestoyed FoodGone;
 
         [SerializeField] private float _speed;
         Rigidbody _rb;
@@ -28,7 +29,7 @@ namespace Fish
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
             {
 
-                FoodGone?.Invoke();
+                FoodGone();
                 Destroy(this.gameObject);
             }
         }

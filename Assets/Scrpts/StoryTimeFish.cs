@@ -104,13 +104,16 @@ namespace Fish
                 state = FishState.isFloating;
                 //this allows the fish to display its first message to the playerbefore moving on to the other points
                 if (isFirstStoryPoint)
+                {
                     _fishInfo.StoryToTell(0);
-            }
-            if (!isFirstStoryPoint)
-            {
-                _fishInfo.StoryToTell(1);
-            }
+                    isFirstStoryPoint = false;
+                }
 
+                if (!isFirstStoryPoint)
+                {
+                    _fishInfo.StoryToTell(1);
+                }
+            }
 
         }
 
@@ -132,6 +135,13 @@ namespace Fish
         protected override void OnCollisionStay(Collision collision)
         {
            // base.OnCollisionStay(collision);
+        }
+
+        public void SetGuidFishFree()
+        {
+            HideCanvas();
+            NewTarget();
+            state = FishState.isSwimming;
         }
     }
 }

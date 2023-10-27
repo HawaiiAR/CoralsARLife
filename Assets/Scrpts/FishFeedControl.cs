@@ -14,8 +14,16 @@ public class FishFeedControl : MonoBehaviour
     public List<GameObject> _fish = new List<GameObject>();
     public List<GameObject> _feedingFish = new List<GameObject>();
     int _hungryFish;
-    
 
+    private void Awake()
+    {
+        FoodPellet.FoodGone += ClearFeedingFish;
+    }
+
+    private void OnDisable()
+    {
+        FoodPellet.FoodGone -= ClearFeedingFish;
+    }
     //releases a food pelet the pelet has a script that pushes it forward
     public void InstantiateFood()
     {
@@ -41,18 +49,20 @@ public class FishFeedControl : MonoBehaviour
         _feedingFish = GetRandomHungryFish(_fish, _hungryFish);
 
         //feeds those hungry fish
-        Invoke(nameof(FeedTheHungryFish), 2);
+        Invoke(nameof(FeedTheHungryFish), 1);
     }
 
     //sets the move target of the hungry fish to the fod pelet
     private void FeedTheHungryFish()
     {
-        foreach (GameObject fish in _feedingFish)
+        for (int i = 0; i < _feedingFish.Count; i++)
         {
-            FishSwim swim = fish.GetComponent<FishSwim>();
+            FishSwim swim = _feedingFish[i].GetComponent<FishSwim>();
+            swim.isFeeding = true;
             swim.food = _foodPellet;
             swim.state = FishSwim.FishState.isBeingFed;
         }
+
     }
 
     //gets a random number of fish that are hungry
@@ -61,7 +71,7 @@ public class FishFeedControl : MonoBehaviour
         List<T> _feedingFish = new List<T>();
         for (int i = 0; i < hungryFishCount; i++)
         {
-            int index = UnityEngine.Random.Range(0, fish.Count);
+            int index = UnityEngine.Random.Range(3, fish.Count);
             _feedingFish.Add(fish[index]);
         }
         Debug.Log("feeding fish");
@@ -69,7 +79,7 @@ public class FishFeedControl : MonoBehaviour
     }
 
     //when a pelet is destroyed the hungry fish are released and sent back to feed
-    private void ClearList()
+    private void ClearFeedingFish()
     {
         _feedingFish.Clear();
     }

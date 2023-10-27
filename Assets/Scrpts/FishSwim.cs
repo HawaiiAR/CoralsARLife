@@ -49,7 +49,7 @@ namespace Fish
         // each fish needs a sigle collider, this get turned off when a fish is taged to present to avoid it hitting another fish
         //and changing direction
         protected Collider _collider;
-        protected bool isFeeding;
+        public bool isFeeding;
         Rigidbody _rb;
 
         protected virtual void Awake()
@@ -182,13 +182,12 @@ namespace Fish
             if (food == null)
             {
                 state = FishState.isSwimming;
+                isFeeding = false;
             }
             else
             {
-
                 isFeeding = true;
                 CalculateDistanceAndDirection(food.transform.position);
-
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
                 this.transform.Translate(0, 0, _speed * 2 * Time.deltaTime);
             }

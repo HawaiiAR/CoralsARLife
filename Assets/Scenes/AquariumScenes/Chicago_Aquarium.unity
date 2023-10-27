@@ -4294,6 +4294,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 827461619}
   m_CullTransparentMesh: 0
+--- !u!114 &833136029 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1400831182500390410, guid: d52515e7c98dc4386bea62614c468020,
+    type: 3}
+  m_PrefabInstance: {fileID: 886995113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681005412070a48ca930b438f84b59cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &836583136
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,6 +4632,130 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishLevel: 0
+--- !u!1001 &886995113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Signals.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf76f0e698b1e4f37a50528234fb957e,
+        type: 2}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 833136029}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bleaching.BleachingExperienceControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8306040621074657674, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Name
+      value: BleachingTimelineExperience
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d52515e7c98dc4386bea62614c468020, type: 3}
 --- !u!1001 &939170085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5070,6 +5206,92 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &1023605485
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548508257}
+    m_Modifications:
+    - target: {fileID: 8306040621074657674, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Name
+      value: BleachingTimelineExperience
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d52515e7c98dc4386bea62614c468020, type: 3}
+--- !u!114 &1023605486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1400831182500390410, guid: d52515e7c98dc4386bea62614c468020,
+    type: 3}
+  m_PrefabInstance: {fileID: 1023605485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681005412070a48ca930b438f84b59cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1023605487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8442541442744779458, guid: d52515e7c98dc4386bea62614c468020,
+    type: 3}
+  m_PrefabInstance: {fileID: 1023605485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041456683
 GameObject:
   m_ObjectHideFlags: 0
@@ -5921,9 +6143,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1023605486}
         m_TargetAssemblyTypeName: Bleaching.BleachingExperienceControl, Assembly-CSharp
-        m_MethodName: StartBleachingSequence
+        m_MethodName: StartBleachingTimeline
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6208,7 +6430,9 @@ MonoBehaviour:
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
     algea
+  _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 845483750}
+  isStoryFish: 0
 --- !u!114 &1308928386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6230,6 +6454,7 @@ MonoBehaviour:
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
+  isFeeding: 0
   _rocks:
   - {fileID: 528526141}
   - {fileID: 1802720114}
@@ -6490,7 +6715,9 @@ MonoBehaviour:
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
     algea
+  _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1308585839}
+  isStoryFish: 0
 --- !u!114 &1313059883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6512,6 +6739,7 @@ MonoBehaviour:
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
+  isFeeding: 0
   _rocks:
   - {fileID: 528526141}
   - {fileID: 1802720114}
@@ -7495,6 +7723,7 @@ MonoBehaviour:
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 0
+  isFeeding: 0
   _rocks:
   - {fileID: 528526141}
   - {fileID: 1802720114}
@@ -7624,7 +7853,9 @@ MonoBehaviour:
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
     algea
+  _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1766503189}
+  isStoryFish: 0
 --- !u!114 &1514849751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7685,7 +7916,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1687611858}
+  - {fileID: 1023605487}
   - {fileID: 1780620179}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8196,55 +8427,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680850786}
   m_CullTransparentMesh: 0
---- !u!1 &1687611856
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1687611858}
-  - component: {fileID: 1687611857}
-  m_Layer: 0
-  m_Name: BleachingExperience
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1687611857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687611856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681005412070a48ca930b438f84b59cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  corals: []
-  apexPreditors: []
-  midLevelFish: []
-  bottomLevelFish: []
-  _colorFadeTime: 0.01
---- !u!4 &1687611858
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687611856}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1548508257}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1698564568
 GameObject:
   m_ObjectHideFlags: 0
@@ -8289,6 +8471,7 @@ MonoBehaviour:
   _distanceToOtherFish: 3
   _tankCenter: {fileID: 2065869755}
   _tankWidth: 5
+  isFeeding: 0
 --- !u!23 &1698564571
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8418,7 +8601,9 @@ MonoBehaviour:
   _fishSwim: {fileID: 1698564569}
   _fishName_txt: "Fish\t"
   _fishInformation_txt: itsa me! Fishio!
+  _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1185889381}
+  isStoryFish: 0
 --- !u!114 &1698564577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10861,7 +11046,9 @@ MonoBehaviour:
   _fishSwim: {fileID: 2010501748}
   _fishName_txt: apex preditor
   _fishInformation_txt: feeds on everyone
+  _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 989733996}
+  isStoryFish: 0
 --- !u!54 &2010501742
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10981,6 +11168,7 @@ MonoBehaviour:
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 668083555}
   _tankWidth: 15
+  isFeeding: 0
 --- !u!1 &2045660251
 GameObject:
   m_ObjectHideFlags: 0
@@ -11195,7 +11383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2072113669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11655,3 +11843,4 @@ SceneRoots:
   - {fileID: 124755978870006585}
   - {fileID: 807894466}
   - {fileID: 3900787067092712831}
+  - {fileID: 886995113}
