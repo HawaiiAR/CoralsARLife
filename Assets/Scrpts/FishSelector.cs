@@ -22,6 +22,7 @@ namespace Fish
         bool _bleachingStarted;
         bool _bleached;
         bool _canPlaceCoral;
+       
 
         // Start is called before the first frame update
         void Start()

@@ -68,7 +68,7 @@ namespace Fish
 
             if (state == FishState.isBeingFed)
             {
-                Debug.Log("bottom feeder feeding");
+               // Debug.Log("bottom feeder feeding");
                 Chasingfood(food.transform);
             }
             if (state == FishState.isEscaping)

@@ -48,7 +48,7 @@ namespace Fish
 
         // each fish needs a sigle collider, this get turned off when a fish is taged to present to avoid it hitting another fish
         //and changing direction
-        protected Collider _collider;
+        public Collider _collider;
         public bool isFeeding;
         Rigidbody _rb;
 
