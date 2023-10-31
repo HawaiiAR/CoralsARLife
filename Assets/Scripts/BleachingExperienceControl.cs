@@ -70,13 +70,13 @@ namespace Bleaching {
         // going to move this to a timeline for more specific control and making it more modular
         public IEnumerator BleachingSequence()
         {
-            float delay = UnityEngine.Random.Range(.5f, 1);
+            float delay = UnityEngine.Random.Range(.25f, .5f);
             foreach (GameObject c in corals)
             {
   
                 Renderer rend = c.GetComponent<Renderer>();
                 float _time = 0;
-                _colorFadeTime = UnityEngine.Random.Range(1, 5);
+                _colorFadeTime = UnityEngine.Random.Range(.5f, 3);
 
                 Color _currentColor = rend.material.color;
 
