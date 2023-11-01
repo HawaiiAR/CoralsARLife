@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     marine life.
   _textCardThree_txt: Vanishing reefs leave coastal communities exposed to storms
     and erosion's fury.
-  _textCardFour_txt: The importants of these incredible eco systems can not be understated.
+  _textCardFour_txt: The importance of these incredible eco systems can not be understated.
   _textCardFive_txt: 'Come visit a vibrant community before its gone and learn how
     we can save it. '
   _introCanvasGroup: {fileID: 414213005}
@@ -5851,7 +5851,7 @@ MonoBehaviour:
   _fishSwim: {fileID: 0}
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
-    algea
+    algae
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 845483750}
   isStoryFish: 0
@@ -6132,7 +6132,7 @@ MonoBehaviour:
   _fishSwim: {fileID: 0}
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
-    algea
+    algae
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1308585839}
   isStoryFish: 0
@@ -7552,7 +7552,7 @@ MonoBehaviour:
   _fishSwim: {fileID: 0}
   _fishName_txt: bottom feeder
   _fishInformation_txt: this fish provides the bottom of the food pyramid by eating
-    algea
+    algae
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1766503189}
   isStoryFish: 0
@@ -10325,7 +10325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 2010501748}
-  _fishName_txt: apex preditor
+  _fishName_txt: apex predator
   _fishInformation_txt: feeds on everyone
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 989733996}
@@ -10856,6 +10856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807588252678709987, guid: 34f6a22ffb0cb4af08c94f2d8257d242,
+        type: 3}
+      propertyPath: _fishInformation_txt
+      value: these fish feed on the bottom feeder fish
       objectReference: {fileID: 0}
     - target: {fileID: 6358022697174711888, guid: 34f6a22ffb0cb4af08c94f2d8257d242,
         type: 3}
