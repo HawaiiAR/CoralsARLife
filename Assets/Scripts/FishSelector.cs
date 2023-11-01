@@ -46,6 +46,7 @@ namespace Fish
         //allows players to seed coral and replenish the reef
         private void PlaceCoral()
         {
+            Debug.Log("can place coral");
             _bleachingStarted = false;
             _bleached = true;
             _canPlaceCoral = true;
@@ -77,6 +78,7 @@ namespace Fish
                     //allows player to place coral where the raycast hits the target
                     if (_canPlaceCoral && hit.collider.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
                     {
+                        Debug.Log("place coral");
                         var hitRot = Quaternion.LookRotation(hit.normal);
                         SeedCoral(hit.point, hitRot);
                     }

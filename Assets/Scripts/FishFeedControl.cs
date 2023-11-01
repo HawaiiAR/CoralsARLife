@@ -25,6 +25,11 @@ namespace Fish
             FoodPellet.FoodGone += ClearFeedingFish;
         }
 
+        private void Start()
+        {
+            canFeedFish = true;
+        }
+
         private void OnDisable()
         {
             FoodPellet.FoodGone -= ClearFeedingFish;
@@ -32,6 +37,7 @@ namespace Fish
         //releases a food pelet the pelet has a script that pushes it forward
         public void InstantiateFood()
         {
+         
             if (canFeedFish)
             {
                 Vector3 _instantiationPos =

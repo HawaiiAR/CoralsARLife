@@ -10144,7 +10144,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072113668}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75a955f18f200b34ba07d82013cdd0f6, type: 3}
   m_Name: 
@@ -10243,7 +10243,7 @@ PrefabInstance:
     - target: {fileID: 6302365899790385166, guid: 13010fd9423264cf69816827e6865e45,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11193,6 +11193,57 @@ PrefabInstance:
       propertyPath: _fishSwim
       value: 
       objectReference: {fileID: 2110897779}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Signals.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Signals.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: bf76f0e698b1e4f37a50528234fb957e,
+        type: 2}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1687611857}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CanStartSeedingCoral
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Bleaching.BleachingExperienceControl, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8306040621074657674, guid: d52515e7c98dc4386bea62614c468020,
         type: 3}
       propertyPath: m_Name

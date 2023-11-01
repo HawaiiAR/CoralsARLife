@@ -178,6 +178,11 @@ namespace Bleaching {
             RemoveFish(_fishFoodChainLevel);
         }
 
+        public void CanStartSeedingCoral()
+        {
+            ReefBleached?.Invoke();
+        }
+
         // this brings fish back when coral count reaches three in fish selector
         private void BringFishBack()
         {
