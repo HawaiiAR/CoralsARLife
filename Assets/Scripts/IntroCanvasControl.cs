@@ -20,9 +20,18 @@ public class IntroCanvasControl : MonoBehaviour
     [SerializeField] private CanvasGroup _introCanvasGroup;
     [SerializeField] private CanvasGroup _cardTextGroup;
     [SerializeField] private TMP_Text _textCard;
+
+    [SerializeField] private GameObject _fishTank;
+
+
     private float alpha;
     private int cardTextNum;
     private bool deactivateCanvas;
+
+    private void Awake()
+    {
+        _fishTank.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +46,14 @@ public class IntroCanvasControl : MonoBehaviour
     public void Skip()
     {
         deactivateCanvas = true;
+        ActivateFishtank();
         Fade("FadeOut");
+    }
+
+    // called from timeline if someone doesn't skip the intro
+    public void ActivateFishtank()
+    {
+        _fishTank.SetActive(true);
     }
 
     public void DisplayIntroText()
@@ -112,6 +128,7 @@ public class IntroCanvasControl : MonoBehaviour
         if (deactivateCanvas)
         {
             _introCanvasGroup.gameObject.SetActive(false);
+          
         }
     }
 }

@@ -50,6 +50,7 @@ namespace Fish
         //and changing direction
         public Collider _collider;
         public bool isFeeding;
+      
         Rigidbody _rb;
 
         protected virtual void Awake()
@@ -67,7 +68,8 @@ namespace Fish
         protected virtual void Start()
         {
             
-            NewTarget();            
+            NewTarget();
+           
         }
 
         protected virtual void OnDisable()
@@ -141,6 +143,7 @@ namespace Fish
         {
             if (otherFish != this.gameObject)
             {
+                Debug.Log("turn away");
                 /*  _distance = Vector3.Distance(otherFish.transform.position, this.transform.position);
                   if (_distance <= _distanceToOtherFish)
                   {
@@ -239,7 +242,7 @@ namespace Fish
             Vector3 target = _presentationPoint.transform.position;     
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
-            Vector3 _dir = this.transform.position - target;
+            Vector3 _dir = target - this.transform.position;
 
             if (_presentationDistance > .2f)
             {
@@ -289,24 +292,41 @@ namespace Fish
          }*/
 
 
-        // need to add a check in here if the fish is feeding
-        protected virtual void OnCollisionStay(Collision collision)
+      /*  private void OnCollisionEnter(Collision collision)
         {
             if (!isFeeding)
             {
                 if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
                 {
-                    //  Debug.Log("hit rock");
+                    Debug.Log("hit rock");
                     state = FishState.isSwimming;
                     NewTarget();
+                }
+            }
+        }*/
+
+        // need to add a check in here if the fish is feeding
+        protected virtual void OnCollisionStay(Collision collision)
+        {
+
+            if (!isFeeding)
+            {
+                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
+                {
+                   // Debug.Log("hit rock");
+                  //  state = FishState.isSwimming;
+                   // NewTarget();
+                    TurnFromTarget(collision.gameObject);
                 }
 
                 if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
                 {
-                    //   Debug.Log("turnFromFish");
+                   
+                     //   Debug.Log("turnFromFish");
 
-                    TurnFromTarget(collision.gameObject);
-
+                        TurnFromTarget(collision.gameObject);
+                     
+                    
 
                 }
             }
