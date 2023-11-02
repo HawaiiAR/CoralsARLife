@@ -125,7 +125,7 @@ namespace Fish
             _timePassed = _waitTime;
             target = new Vector3(
             UnityEngine.Random.Range(_tankCenter.transform.position.x - _tankWidth, _tankCenter.transform.position.x + _tankWidth),
-            UnityEngine.Random.Range(_tankCenter.transform.position.y - _tankWidth, _tankCenter.transform.position.y + _tankWidth),
+            UnityEngine.Random.Range(_tankCenter.transform.position.y - _tankWidth / 2, _tankCenter.transform.position.y + _tankWidth / 2),
             UnityEngine.Random.Range(_tankCenter.transform.position.z - _tankWidth, _tankCenter.transform.position.z + _tankWidth)
             );
 
