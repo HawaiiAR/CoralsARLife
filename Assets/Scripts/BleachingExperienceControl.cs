@@ -126,7 +126,7 @@ namespace Bleaching {
          
             for (int i = 0; i < fish.Count; i++)
             {
-                float delay = UnityEngine.Random.Range(3, 5);
+                float delay = UnityEngine.Random.Range(1, 3);
                 fish[i].gameObject.SetActive(state);
                 yield return new WaitForSeconds(delay);
                      

@@ -7,6 +7,14 @@ namespace Fish {
     public class SharkSwim : FishSwim
     {
 
+        protected override void Awake()
+        {
+            // base.Awake();
+            _fishInfo = this.GetComponent<FishInfo>();
+            _collider = this.GetComponent<Collider>();
+          
+        }
+
         protected override void Start()
         {
             base.Start();
@@ -46,6 +54,10 @@ namespace Fish {
         {
             //randomizes the circle width the shark swims to make it a little less mechanical
             float _randomRadius = Random.Range(_tankWidth - .5f, _tankWidth);
+            Vector3 centerPoint = new Vector3(_tankCenter.transform.position.x,
+                _tankCenter.transform.position.y + Random.Range(-3, 3),
+                _tankCenter.transform.position.z
+                );
             target = RandomPointOnXZCircle(_tankCenter.transform.position, _randomRadius);
             
         }
@@ -53,10 +65,9 @@ namespace Fish {
         //this picks a random point on a circle to keep the shark swimming in somewhat of a circular pattern
         Vector3 RandomPointOnXZCircle(Vector3 center, float radius)
         {
+            
             float angle = Random.Range(0, 2f * Mathf.PI);
-            return center + new Vector3(Mathf.Cos(angle),
-                UnityEngine.Random.Range(-1, 1),
-                Mathf.Sin(angle)) * radius;
+            return center + new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
         }
 
         //called when a shark is swimming
@@ -91,6 +102,16 @@ namespace Fish {
             {
                 //  Debug.Log("hit rock");
                 TurnFromTarget(collision.gameObject);
+            }
+
+
+            if (collision.gameObject.CompareTag("Shark"))
+            {
+
+                //   Debug.Log("turnFromFish");
+
+                TurnFromTarget(collision.gameObject);
+
             }
         }
     }

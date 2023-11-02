@@ -26,7 +26,7 @@ namespace RocksnCoral {
             float targetSize = _maxSize;
 
 
-            Debug.Log("Grow");
+          //  Debug.Log("Grow");
             while (currentSize < targetSize)
             {
                 //  Debug.Log("Growspeed");

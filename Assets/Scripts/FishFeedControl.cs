@@ -40,13 +40,7 @@ namespace Fish
          
             if (canFeedFish)
             {
-                Vector3 _instantiationPos =
-                    new Vector3(_camera.transform.position.x,
-                                _camera.transform.position.y,
-                                _camera.transform.position.z + 1.5f
-                                 );
-
-                _foodPellet = Instantiate(_food, _instantiationPos, _camera.transform.rotation);
+                _foodPellet = Instantiate(_food, _camera.transform.position, _camera.transform.rotation);
 
                 FindHungryFish();
                 canFeedFish = false;

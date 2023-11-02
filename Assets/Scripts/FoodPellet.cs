@@ -28,7 +28,7 @@ namespace Fish
         {
             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
             {
-
+                Debug.Log("Food Gone");
                 FoodGone();
                 Destroy(this.gameObject);
             }

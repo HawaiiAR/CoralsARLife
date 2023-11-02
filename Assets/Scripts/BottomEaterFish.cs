@@ -24,7 +24,8 @@ namespace Fish
         }
       
         protected override void Start()
-        { 
+        {
+            FoodPellet.FoodGone += FoodGone;
             GetRock();
             _fishStuckTimer = 3;
         }
@@ -161,6 +162,7 @@ namespace Fish
         //if a fish has been selected to go to a players feed pellet it will go back to feeding when the food is gone
         protected override void FoodGone()
         {
+            state = FishState.isSwimming;
             food = null;
             isFeeding = false;
             GetRock();

@@ -8158,12 +8158,17 @@ PrefabInstance:
     - target: {fileID: 6657056621659883673, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.83
+      value: 6.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 6657056621659883673, guid: f42a71215d5a945febe623cf7a04ee43,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.75
       objectReference: {fileID: 0}
     - target: {fileID: 6657056621659883673, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.72
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 6787002123052063917, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
@@ -8213,7 +8218,7 @@ PrefabInstance:
     - target: {fileID: 7467653135329006321, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.06
+      value: 9.66
       objectReference: {fileID: 0}
     - target: {fileID: 7917571624717033550, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
@@ -8228,7 +8233,7 @@ PrefabInstance:
     - target: {fileID: 9011391946841831155, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.85
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 9011391946841831155, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
@@ -8238,12 +8243,12 @@ PrefabInstance:
     - target: {fileID: 9011391946841831155, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.85
+      value: 2.71
       objectReference: {fileID: 0}
     - target: {fileID: 9043829032718296077, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.77
+      value: -7.46
       objectReference: {fileID: 0}
     - target: {fileID: 9043829032718296077, guid: f42a71215d5a945febe623cf7a04ee43,
         type: 3}
@@ -8360,7 +8365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2072113669
 MonoBehaviour:
   m_ObjectHideFlags: 0

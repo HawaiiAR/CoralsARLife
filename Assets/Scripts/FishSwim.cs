@@ -51,12 +51,11 @@ namespace Fish
         public Collider _collider;
         public bool isFeeding;
       
-        Rigidbody _rb;
+       protected Rigidbody _rb;
 
         protected virtual void Awake()
         {
-            FoodPellet.FoodGone += FoodGone;
-
+          
             _tankCenter = GameObject.Find("TankCenter").GetComponent<Transform>();
             
             _fishInfo = this.GetComponent<FishInfo>();
@@ -67,7 +66,7 @@ namespace Fish
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            
+            FoodPellet.FoodGone += FoodGone;
             NewTarget();
            
         }
@@ -143,7 +142,7 @@ namespace Fish
         {
             if (otherFish != this.gameObject)
             {
-                Debug.Log("turn away");
+           //     Debug.Log("turn away");
                 /*  _distance = Vector3.Distance(otherFish.transform.position, this.transform.position);
                   if (_distance <= _distanceToOtherFish)
                   {

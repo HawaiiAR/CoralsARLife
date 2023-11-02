@@ -61,7 +61,7 @@ namespace Fish
             if (state == FishState.isLookingForFood)
             {
                 // FloatTimer(FishState.isSwimming);
-                Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
+                Vector3 _dir = this.transform.position - _presentationPoint.transform.position;
                 _dir.y = 0;
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
             }
