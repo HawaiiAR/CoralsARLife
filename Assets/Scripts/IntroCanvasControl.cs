@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using TMPro;
 
 
@@ -20,8 +21,12 @@ public class IntroCanvasControl : MonoBehaviour
     [SerializeField] private CanvasGroup _introCanvasGroup;
     [SerializeField] private CanvasGroup _cardTextGroup;
     [SerializeField] private TMP_Text _textCard;
+    [SerializeField] private GameObject _bgImage_img;
+    [SerializeField] private GameObject _uiControl;
 
     [SerializeField] private GameObject _fishTank;
+
+    private PlayableDirector _director;
 
 
     private float alpha;
@@ -31,6 +36,7 @@ public class IntroCanvasControl : MonoBehaviour
     private void Awake()
     {
         _fishTank.SetActive(false);
+        _uiControl.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -39,9 +45,13 @@ public class IntroCanvasControl : MonoBehaviour
         alpha = 0;
         _cardTextGroup.alpha = alpha;
         cardTextNum = 1;
+        _director = this.GetComponent<PlayableDirector>();
     }
 
-    // Update is called once per frame
+    public void PlayIntroTimeline()
+    {
+        _director.Play();
+    }
 
     public void Skip()
     {
@@ -54,6 +64,7 @@ public class IntroCanvasControl : MonoBehaviour
     public void ActivateFishtank()
     {
         _fishTank.SetActive(true);
+        _uiControl.SetActive(true);
     }
 
     public void DisplayIntroText()
@@ -127,7 +138,9 @@ public class IntroCanvasControl : MonoBehaviour
         Debug.Log("Out");
         if (deactivateCanvas)
         {
+            _bgImage_img.SetActive(false);
             _introCanvasGroup.gameObject.SetActive(false);
+          
           
         }
     }

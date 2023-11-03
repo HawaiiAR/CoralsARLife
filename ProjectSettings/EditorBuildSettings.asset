@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/Samples/ARCore Extensions/1.39.0/Geospatial Sample/Scenes/Geospatial.unity
+    path: Assets/Scenes/Geospatial.unity
     guid: 1ed15e9657253406185e4b2c7c5a4fc4
   - enabled: 0
     path: Assets/Scenes/JordansHouse.unity
@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AquariumScenes/Honolulu_AquariumAR.unity
     guid: 950c19fbfec6648e094461da82aac32d
+  - enabled: 0
+    path: Assets/Scenes/YucaipaTest.unity
+    guid: 144e0f1633ce04ec1b99a695a4cb0e7a
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 25fc453b89c774f74bd77da86168377e,
       type: 2}

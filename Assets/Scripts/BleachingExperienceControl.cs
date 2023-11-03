@@ -76,14 +76,15 @@ namespace Bleaching {
   
                 Renderer rend = c.GetComponent<Renderer>();
                 float _time = 0;
-                _colorFadeTime = UnityEngine.Random.Range(.5f, 3);
+                _colorFadeTime = UnityEngine.Random.Range(1f, 3f);
 
                 Color _currentColor = rend.material.color;
 
-                while (_time < 1)
+                while (_time < _colorFadeTime)
                 {
                     _time += Time.deltaTime / _colorFadeTime;
                     rend.material.color = Color.Lerp(_currentColor, Color.white, _time);
+                    rend.material.SetColor("_EmissionColor", Color.Lerp(_currentColor, Color.white, _time));
                     yield return null;
                 }
 

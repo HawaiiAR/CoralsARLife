@@ -1061,6 +1061,11 @@ PrefabInstance:
       propertyPath: _fishTank
       value: 
       objectReference: {fileID: 1550614312}
+    - target: {fileID: 983872018926891656, guid: b01b083f3b67c4c24bd6d5f2eb766fe4,
+        type: 3}
+      propertyPath: _uiControl
+      value: 
+      objectReference: {fileID: 376827231}
     - target: {fileID: 1029125704755414839, guid: b01b083f3b67c4c24bd6d5f2eb766fe4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1169,7 +1174,7 @@ PrefabInstance:
     - target: {fileID: 7974593707821218708, guid: b01b083f3b67c4c24bd6d5f2eb766fe4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1260,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 1678378639782225485, guid: d8e0dbdf016a94976b6cb206ce49e06e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2008935070902896695, guid: d8e0dbdf016a94976b6cb206ce49e06e,
         type: 3}
@@ -1362,6 +1367,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6671501132061137919, guid: d8e0dbdf016a94976b6cb206ce49e06e,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6851147080189744591, guid: d8e0dbdf016a94976b6cb206ce49e06e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1392,6 +1402,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8e0dbdf016a94976b6cb206ce49e06e, type: 3}
+--- !u!1 &376827231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1678378639782225485, guid: d8e0dbdf016a94976b6cb206ce49e06e,
+    type: 3}
+  m_PrefabInstance: {fileID: 376827230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &384014290
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,7 +3235,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &807894464
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5114,7 +5130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &1451910691
 Camera:
   m_ObjectHideFlags: 0

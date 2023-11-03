@@ -21,11 +21,13 @@ namespace Fish
         {
          
             BleachingExperienceControl.BleachingStarted += PresentFish;
-            //base.Start();
+            //base.Start();  
+            
+        }
 
-             _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
-
-           
+        private void OnEnable()
+        {
+            _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
             state = FishState.isLookingForFood;
             isFirstStoryPoint = true;
         }
@@ -52,7 +54,7 @@ namespace Fish
                 //moved this out of the swim function so it doesn't get inherited
                 if (_distance < 1f)
                 {
-                    Debug.Log("StoryFishStopped");
+                 //   Debug.Log("StoryFishStopped");
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     state = FishState.isLookingForFood;
                 }
@@ -61,7 +63,7 @@ namespace Fish
             if (state == FishState.isLookingForFood)
             {
                 // FloatTimer(FishState.isSwimming);
-                Vector3 _dir = this.transform.position - _presentationPoint.transform.position;
+                Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
                 _dir.y = 0;
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
             }
@@ -95,7 +97,7 @@ namespace Fish
             if (_presentationDistance < 1)
             {
                 _collider.enabled = true;
-                this.transform.rotation = Quaternion.Slerp(transform.rotation, _presentationPoint.transform.rotation, 2 * Time.deltaTime);
+              //  this.transform.rotation = Quaternion.Slerp(transform.rotation, _presentationPoint.transform.rotation, 2 * Time.deltaTime);
             }
 
             if (_presentationDistance <= .2)
