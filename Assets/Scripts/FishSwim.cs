@@ -142,6 +142,7 @@ namespace Fish
         {
             if (otherFish != this.gameObject)
             {
+              
            //     Debug.Log("turn away");
                 /*  _distance = Vector3.Distance(otherFish.transform.position, this.transform.position);
                   if (_distance <= _distanceToOtherFish)
@@ -159,10 +160,10 @@ namespace Fish
                   }*/
 
                 Vector3 avoidanceTarget = this.transform.position - otherFish.transform.position;
-                transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(avoidanceTarget), _rotSpeed  * 2 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(avoidanceTarget), _rotSpeed  * Time.deltaTime);
                 this.transform.Translate(0, 0, _speed * 3 * Time.deltaTime);
 
-                Invoke(nameof(FoodGone), 5);
+               // Invoke(nameof(FoodGone), 2);
             }
 
         }
@@ -199,6 +200,7 @@ namespace Fish
         //when a pellet is gone the fish are released to find a new target, this changes on a per fish basis
         protected virtual void FoodGone()
         {
+           
             state = FishState.isSwimming;
             isFeeding = false;
             food = null;
