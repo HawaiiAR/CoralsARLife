@@ -130,8 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 6437417657141164000}
-  _fishName_txt: apex predator
-  _fishInformation_txt: feeds on everyone
+  fishName_txt: White-tipped reef shark
+  fishInformation_txt: The white-tipped reef shark, an adept predator, patrols coral
+    reefs, contributing to ecosystem balance.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 2577103722520173535}
   isStoryFish: 0
@@ -164,7 +165,7 @@ MonoBehaviour:
   state: 0
   _speed: 1
   _fish: {fileID: 55629810488737152}
-  _rotSpeed: 0.05
+  _rotSpeed: 0.025
   _waitTime: 0
   _distanceToOtherFish: 5
   _tankCenter: {fileID: 5112339261341019068}
@@ -484,8 +485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 5622231155603481370}
-  _fishName_txt: apex predator
-  _fishInformation_txt: feeds on everyone
+  fishName_txt: Blue fin jack
+  fishInformation_txt: Swift and sleek, the blue fin jack is a formidable predator
+    within the oceanic food chain.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1317340668530423032}
   isStoryFish: 0
@@ -1367,11 +1369,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6cff3709b034535a54173c632d8c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fishSwim: {fileID: 8240295065191154535}
-  _fishName_txt: apex predator
-  _fishInformation_txt: feeds on everyone
+  _fishSwim: {fileID: 5622231155603481370}
+  fishName_txt: Blue fin jack
+  fishInformation_txt: Swift and sleek, the blue fin jack is a formidable predator
+    within the oceanic food chain.
   _storyTwoInfo_txt: 
-  _infoCanvas: {fileID: 3255217136957214865}
+  _infoCanvas: {fileID: 1317340668530423032}
   isStoryFish: 0
 --- !u!114 &4681513556957555757
 MonoBehaviour:
@@ -1798,8 +1801,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 2935104592976714994}
-  _fishName_txt: "Fish\t"
-  _fishInformation_txt: itsa me! Fishio!
+  fishName_txt: Hawaiian Parrotfish
+  fishInformation_txt: The Hawaiian parrotfish, known for its vibrant colors, plays
+    a vital role in coral reef ecosystems.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 2716609548891927751}
   isStoryFish: 0
@@ -1991,8 +1995,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 2982028328979113775}
-  _fishName_txt: "Fish\t"
-  _fishInformation_txt: itsa me! Fishio!
+  fishName_txt: Hawaiian Parrotfish
+  fishInformation_txt: The Hawaiian parrotfish, known for its vibrant colors, plays
+    a vital role in coral reef ecosystems.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 934598534876074961}
   isStoryFish: 0
@@ -2557,8 +2562,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 2826744817481496445}
-  _fishName_txt: "Fish\t"
-  _fishInformation_txt: itsa me! Fishio!
+  fishName_txt: Hawaiian triggerfish
+  fishInformation_txt: The triggerfish, or Humu Humu Nuku Nuku Apua'a is the Hawaiian
+    state fish. Recognizable by its vibrant hues and unique fin structure is vital
+    to maintaining reef health.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 9136889933296485761}
   isStoryFish: 0
@@ -3099,6 +3106,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _infoCanvas
+      value: 
+      objectReference: {fileID: 215444975591085445}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishName_txt
+      value: Potter's angelfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishName_txt
+      value: Potter's Angelfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishInformation_txt
+      value: Potter's angelfish, adorned with striking patterns, adds splashes of
+        color to the oceanic tapestry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishInformation_txt
+      value: Potter's angelfish, adorned with striking patterns, adds splashes of
+        color to the oceanic tapestry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903381502595277, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3317,6 +3356,11 @@ PrefabInstance:
       propertyPath: _distanceToOtherFish
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8151245128373323091, guid: 34f6a22ffb0cb4af08c94f2d8257d242,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3509,6 +3553,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishName_txt
+      value: Long-nosed butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishName_txt
+      value: Long-Nose Butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishInformation_txt
+      value: With its distinctive elongated snout, the long-nosed butterflyfish gracefully
+        navigates coral reefs in search of nourishment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishInformation_txt
+      value: With its distinctive elongated snout, the long-nosed butterflyfish gracefully
+        navigates coral reefs in search of nourishment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903381502595277, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3548,6 +3619,12 @@ Animator:
 --- !u!4 &7551655565181695899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5093372037334683897, guid: c3599a1ad3ce04f0c86569796563c9cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 3342678455039584098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8530336965602360774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6341714919169252004, guid: c3599a1ad3ce04f0c86569796563c9cf,
     type: 3}
   m_PrefabInstance: {fileID: 3342678455039584098}
   m_PrefabAsset: {fileID: 0}
@@ -3759,6 +3836,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _infoCanvas
+      value: 
+      objectReference: {fileID: 8530336965602360774}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishName_txt
+      value: Long-nosed butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishName_txt
+      value: Long-Nose Butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishInformation_txt
+      value: With its distinctive elongated snout, the long-nosed butterflyfish gracefully
+        navigates coral reefs in search of nourishment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishInformation_txt
+      value: With its distinctive elongated snout, the long-nosed butterflyfish gracefully
+        navigates coral reefs in search of nourishment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903381502595277, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3952,6 +4061,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FishInvofmationObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4356,6 +4470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FishInvofmationObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4865,6 +4984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishInvofmationObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4990,6 +5114,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishName_txt
+      value: Potter's angelfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishName_txt
+      value: Potter's Angelfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishInformation_txt
+      value: Potter's angelfish, adorned with striking patterns, adds splashes of
+        color to the oceanic tapestry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishInformation_txt
+      value: Potter's angelfish, adorned with striking patterns, adds splashes of
+        color to the oceanic tapestry.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903381502595277, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4999,6 +5150,12 @@ PrefabInstance:
       addedObject: {fileID: 764482786786004429}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3599a1ad3ce04f0c86569796563c9cf, type: 3}
+--- !u!1 &215444975591085445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6341714919169252004, guid: c3599a1ad3ce04f0c86569796563c9cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6557001424740224801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2040250409169379288 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5093372037334683897, guid: c3599a1ad3ce04f0c86569796563c9cf,
@@ -5562,17 +5719,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishInvofmationObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4fb04f1af6054dec98506557e61dc51, type: 3}
---- !u!1 &3255217136957214865 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5335310725116957272, guid: d4fb04f1af6054dec98506557e61dc51,
-    type: 3}
-  m_PrefabInstance: {fileID: 7432644087812244169}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8846627935808427800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2153713856526702033, guid: d4fb04f1af6054dec98506557e61dc51,
@@ -5666,6 +5822,32 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _infoCanvas
+      value: 
+      objectReference: {fileID: 8530336965602360774}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishName_txt
+      value: Long-nosed butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: _fishName_txt
+      value: Long-Nose Butterflyfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268734814755329227, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: fishInformation_txt
+      value: With its distinctive elongated snout, the long-nosed butterflyfish gracefully
+        navigates coral reefs in search of nourishment.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6971903381502595277, guid: c3599a1ad3ce04f0c86569796563c9cf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5772,6 +5954,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishInvofmationObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5797,6 +5984,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5699973079356613396}
     m_Modifications:
+    - target: {fileID: 963670812267524715, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 963670812267524715, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 963670812267524715, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.95
+      objectReference: {fileID: 0}
     - target: {fileID: 1912702817772762385, guid: d52515e7c98dc4386bea62614c468020,
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5817,6 +6019,11 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2556569629026343626, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3957832299334888029, guid: d52515e7c98dc4386bea62614c468020,
         type: 3}
       propertyPath: m_Enabled
@@ -5827,6 +6034,16 @@ PrefabInstance:
       propertyPath: _fishSwim
       value: 
       objectReference: {fileID: 6106761141835143545}
+    - target: {fileID: 5875876386309578555, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6016061848433115038, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6971035033282418657, guid: d52515e7c98dc4386bea62614c468020,
         type: 3}
       propertyPath: m_Events.m_Events.Array.size
@@ -5877,6 +6094,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Events.m_Events.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547376757956912630, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219386947047719412, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259011608116220682, guid: d52515e7c98dc4386bea62614c468020,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8306040621074657674, guid: d52515e7c98dc4386bea62614c468020,
         type: 3}
@@ -6134,6 +6366,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FishInvofmationObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -59,6 +59,7 @@ namespace Bleaching {
         public void StartBleachingTimeline()
         {
             _bleachingDirector.Play();
+            BleachingStarted?.Invoke();
         }
 
         public void StartBleachingSequence()

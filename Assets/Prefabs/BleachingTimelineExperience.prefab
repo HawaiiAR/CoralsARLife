@@ -155,6 +155,7 @@ MonoBehaviour:
   _distanceToOtherFish: 3
   _tankCenter: {fileID: 963670812267524715}
   _tankWidth: 10
+  _collider: {fileID: 0}
   isFeeding: 0
   storyPoint: {fileID: 0}
   _moveCanvas: {fileID: 7956775499270727755}
@@ -638,6 +639,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833982944799428381, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
@@ -658,6 +664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6894219948167924228, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -835,6 +846,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833982944799428381, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
@@ -855,6 +871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6894219948167924228, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -1032,6 +1053,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833982944799428381, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
@@ -1052,6 +1078,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6894219948167924228, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -1229,6 +1260,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833982944799428381, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
@@ -1249,6 +1285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6894219948167924228, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -1426,6 +1467,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4833982944799428381, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
@@ -1446,6 +1492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6894219948167924228, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -1592,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FishInvofmationObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -18,7 +18,7 @@ namespace Info
         Vector3 _startSize = Vector3.zero;
         Vector3 _EndSize = Vector3.one;
         protected float _currentSize;
-        protected float _maxSize = 1;
+        protected float _maxSize = .75f;
         protected float _minSize = 0;
 
        public bool isStoryFish = false;

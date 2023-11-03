@@ -19,9 +19,9 @@ namespace Fish
 
         //these should be filled in in the inspector with proper info
         [TextArea(1, 1)]
-        [SerializeField] private string _fishName_txt;
+        [SerializeField] public string fishName_txt;
         [TextArea(2, 5)]
-        [SerializeField] protected string _fishInformation_txt;
+        [SerializeField] public string fishInformation_txt;
         [TextArea(2, 5)]
         [SerializeField] protected string _storyTwoInfo_txt;
 
@@ -50,12 +50,12 @@ namespace Fish
             switch(storyNum)
             {
                 case 0:
-                    _moveCanvas.fishName.text = _fishName_txt;
-                    _moveCanvas.fishInfo.text = _fishInformation_txt;
+                    _moveCanvas.fishName.text = fishName_txt;
+                    _moveCanvas.fishInfo.text = fishInformation_txt;
                     
                     break;
                 case 1:
-                    _moveCanvas.fishName.text = _fishName_txt;
+                    _moveCanvas.fishName.text = fishName_txt;
                     _moveCanvas.fishInfo.text = _storyTwoInfo_txt;
                    
                     break;

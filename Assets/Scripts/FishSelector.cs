@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Bleaching;
-using TMPro;
+using UnityEngine.EventSystems;
 
 namespace Fish
 {
@@ -60,6 +60,8 @@ namespace Fish
                 //this  needs to be switched out for touch to work with mobile//////////////////////////////////////////////
                 // Touch touch = Input.GetTouch(0);
                 // Ray ray = _arCamera.ScreenPointToRay(touch.position);
+
+                if (EventSystem.current.IsPointerOverGameObject()) return;
 
                 Ray ray = _arCamera.ScreenPointToRay(Input.mousePosition);
            

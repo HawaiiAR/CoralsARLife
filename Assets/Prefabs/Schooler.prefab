@@ -209,6 +209,7 @@ MonoBehaviour:
   _fish:
   - {fileID: 991738729744362474}
   - {fileID: 6948198364871996445}
+  _fishInfo: {fileID: 2807588252678709987}
 --- !u!1001 &72678608399095483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,6 +372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

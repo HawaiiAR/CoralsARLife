@@ -163,7 +163,7 @@ namespace Fish
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(avoidanceTarget), _rotSpeed  * Time.deltaTime);
                 this.transform.Translate(0, 0, _speed * 3 * Time.deltaTime);
 
-               // Invoke(nameof(FoodGone), 2);
+       
             }
 
         }
@@ -192,7 +192,7 @@ namespace Fish
                 isFeeding = true;
                 CalculateDistanceAndDirection(food.transform.position);
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
-                this.transform.Translate(0, 0, _speed * 2 * Time.deltaTime);
+                this.transform.Translate(0, 0, _speed * 5 * Time.deltaTime);
             }
 
         }
