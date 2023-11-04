@@ -9,7 +9,7 @@ namespace Fish
     public class FishFeedControl : MonoBehaviour
     {
 
-        [SerializeField] private GameObject _camera;
+        [SerializeField] private GameObject _foodInstantiationPoint;
         [SerializeField] private GameObject _food;
         GameObject _foodPellet;
 
@@ -40,7 +40,7 @@ namespace Fish
          
             if (canFeedFish)
             {
-                _foodPellet = Instantiate(_food, _camera.transform.position, _camera.transform.rotation);
+                _foodPellet = Instantiate(_food, _foodInstantiationPoint.transform.position, _foodInstantiationPoint.transform.rotation);
 
                 FindHungryFish();
                 canFeedFish = false;

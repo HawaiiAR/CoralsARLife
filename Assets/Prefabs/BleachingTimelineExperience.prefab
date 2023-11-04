@@ -53,7 +53,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4661241385714616833}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -122,16 +122,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
-  _fishName_txt: 
-  _fishInformation_txt: Watch me and I'll show you what happens when reefs get too
-    hot!
-  _storyTwoInfo_txt: 'Once the reefs are gone its very hard to bring them back
+  fishName_txt: 
+  fishInformation_txt: "Reefs are important but delicate eco systems. \nWatch me
+    and I'll show you what can happen when temperatures get too high!"
+  _storyTwoInfo_txt: 'Once the reefs are gone it''s difficult to bring them back.
 
-    one
-    way is by seeding new coral
+    One
+    experimental method is seeding tempurature tolerant corals.
 
-    tap on the dead coral to place new corals and
-    watch them grow'
+    Tap on the dead
+    coral to place new polyps and watch them grow.'
   _infoCanvas: {fileID: 1997807928782131363}
   isStoryFish: 1
 --- !u!114 &4123884256481600279
@@ -147,8 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 0}
+  averageSwimSpeed: 0
   state: 0
-  _speed: 1.5
+  _speed: 2.3
   _fish: {fileID: 4661241385714616833}
   _rotSpeed: 0.5
   _waitTime: 3
@@ -250,7 +251,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3755538295482255913}
   m_Father: {fileID: 8442541442744779458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4417684542270483872
@@ -268,7 +270,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5051036900193248768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -324,6 +326,89 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &6241373367897265309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3755538295482255913}
+  - component: {fileID: 2920553515440191086}
+  - component: {fileID: 3968449489170428719}
+  m_Layer: 0
+  m_Name: rock.007
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3755538295482255913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241373367897265309}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 250, y: 250, z: 250}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7542796090648384233}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2920553515440191086
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241373367897265309}
+  m_Mesh: {fileID: -771945520528824427, guid: f1b4b76f7320d4afc81570cf92e9860d, type: 3}
+--- !u!23 &3968449489170428719
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241373367897265309}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: e28fb77472c2346358048c7b2427608d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7768943794020143580
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,11 +740,6 @@ PrefabInstance:
       propertyPath: fishInfo
       value: 
       objectReference: {fileID: 70276058248098660}
-    - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
-        type: 3}
-      propertyPath: fishName
-      value: 
-      objectReference: {fileID: 1622587238402805330}
     - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_Color.a
@@ -710,18 +790,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 964212340620249151}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1622587238402805330 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2010017743484683885, guid: 5f80136efac8c430f8d1720dcd1740f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 964212340620249151}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3679972706705494610 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4499221020097878637, guid: 5f80136efac8c430f8d1720dcd1740f2,
@@ -862,11 +930,6 @@ PrefabInstance:
       propertyPath: fishInfo
       value: 
       objectReference: {fileID: 148545818367071169}
-    - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
-        type: 3}
-      propertyPath: fishName
-      value: 
-      objectReference: {fileID: 1473381240095698679}
     - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_Color.a
@@ -908,18 +971,6 @@ GameObject:
 --- !u!114 &148545818367071169 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 979596347074181979, guid: 5f80136efac8c430f8d1720dcd1740f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1123511847077800090}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1473381240095698679 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2010017743484683885, guid: 5f80136efac8c430f8d1720dcd1740f2,
     type: 3}
   m_PrefabInstance: {fileID: 1123511847077800090}
   m_PrefabAsset: {fileID: 0}
@@ -1069,11 +1120,6 @@ PrefabInstance:
       propertyPath: fishInfo
       value: 
       objectReference: {fileID: 2589291120871178069}
-    - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
-        type: 3}
-      propertyPath: fishName
-      value: 
-      objectReference: {fileID: 3860217386491314787}
     - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_Color.a
@@ -1121,18 +1167,6 @@ GameObject:
 --- !u!114 &2589291120871178069 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 979596347074181979, guid: 5f80136efac8c430f8d1720dcd1740f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3348209986608628750}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3860217386491314787 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2010017743484683885, guid: 5f80136efac8c430f8d1720dcd1740f2,
     type: 3}
   m_PrefabInstance: {fileID: 3348209986608628750}
   m_PrefabAsset: {fileID: 0}
@@ -1276,11 +1310,6 @@ PrefabInstance:
       propertyPath: fishInfo
       value: 
       objectReference: {fileID: 2550098571294813611}
-    - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
-        type: 3}
-      propertyPath: fishName
-      value: 
-      objectReference: {fileID: 3827770439871058077}
     - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_Color.a
@@ -1328,18 +1357,6 @@ GameObject:
 --- !u!114 &2550098571294813611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 979596347074181979, guid: 5f80136efac8c430f8d1720dcd1740f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3385577256391956208}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3827770439871058077 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2010017743484683885, guid: 5f80136efac8c430f8d1720dcd1740f2,
     type: 3}
   m_PrefabInstance: {fileID: 3385577256391956208}
   m_PrefabAsset: {fileID: 0}
@@ -1483,11 +1500,6 @@ PrefabInstance:
       propertyPath: fishInfo
       value: 
       objectReference: {fileID: 4165634967034825129}
-    - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
-        type: 3}
-      propertyPath: fishName
-      value: 
-      objectReference: {fileID: 3436936057114719391}
     - target: {fileID: 6695406182194042628, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_Color.a
@@ -1526,18 +1538,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3771614461118313202}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3436936057114719391 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2010017743484683885, guid: 5f80136efac8c430f8d1720dcd1740f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 3771614461118313202}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4165634967034825129 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 979596347074181979, guid: 5f80136efac8c430f8d1720dcd1740f2,
@@ -1629,6 +1629,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -138.89769
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_margin.y
+      value: -47.998043
+      objectReference: {fileID: 0}
     - target: {fileID: 4602487809829841584, guid: d4fb04f1af6054dec98506557e61dc51,
         type: 3}
       propertyPath: isStoryFish
@@ -1643,6 +1653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FishInvofmationObject (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062504640791561140, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8271342196696012849, guid: d4fb04f1af6054dec98506557e61dc51,
         type: 3}

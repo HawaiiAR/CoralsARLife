@@ -16,7 +16,7 @@ namespace Info
         protected override void Start()
         {
             base.Start();
-            base.fishName.text = _infoTitle;
+//            base.fishName.text = _infoTitle;
             base.fishInfo.text = _info;
         }
 

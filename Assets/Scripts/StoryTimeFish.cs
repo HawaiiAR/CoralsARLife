@@ -10,6 +10,7 @@ namespace Fish
     {
         public Transform storyPoint;
         private GameObject _presentationPoint;
+        private GameObject _player;
 
         [SerializeField] private MoveCanvasToPosition _moveCanvas;
 
@@ -28,6 +29,7 @@ namespace Fish
         private void OnEnable()
         {
             _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
+            _player = GameObject.FindGameObjectWithTag("MainCamera");
             state = FishState.isLookingForFood;
             isFirstStoryPoint = true;
         }
@@ -54,16 +56,17 @@ namespace Fish
                 //moved this out of the swim function so it doesn't get inherited
                 if (_distance < 1f)
                 {
-                 //   Debug.Log("StoryFishStopped");
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     state = FishState.isLookingForFood;
+                    //
+                    isFirstStoryPoint = false;
                 }
             }
 
             if (state == FishState.isLookingForFood)
             {
                 // FloatTimer(FishState.isSwimming);
-                Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
+                Vector3 _dir = this.transform.position - _presentationPoint.transform.position;
                 _dir.y = 0;
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
             }
@@ -77,12 +80,11 @@ namespace Fish
 
         protected override void PresentFish()
         {
-
-
-            Vector3 target = _presentationPoint.transform.position;
+            Vector3 _midPointDirection = (_player.transform.position - _presentationPoint.transform.position); 
+            Vector3 target = _player.transform.position - (_midPointDirection / 2f);
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
-            Vector3 _dir = this.transform.position - target;
+            Vector3 _dir = target - this.transform.position;
 
             if (_presentationDistance > .2f)
             {
@@ -108,7 +110,7 @@ namespace Fish
                 if (isFirstStoryPoint)
                 {
                     _fishInfo.StoryToTell(0);
-                    isFirstStoryPoint = false;
+                  //  isFirstStoryPoint = false;
                 }
 
                 if (!isFirstStoryPoint)

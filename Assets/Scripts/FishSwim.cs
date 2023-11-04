@@ -24,6 +24,7 @@ namespace Fish
         }
 
         public GameObject food;
+        public float averageSwimSpeed;
 
         [Header("Fish")]      
         [SerializeField] public FishState state;
@@ -161,7 +162,8 @@ namespace Fish
 
                 Vector3 avoidanceTarget = this.transform.position - otherFish.transform.position;
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(avoidanceTarget), _rotSpeed  * Time.deltaTime);
-                this.transform.Translate(0, 0, _speed * 3 * Time.deltaTime);
+                averageSwimSpeed = _speed * 3;
+                this.transform.Translate(0, 0, averageSwimSpeed * Time.deltaTime);
 
        
             }
@@ -171,8 +173,8 @@ namespace Fish
         //this is the base mostion for sharks and middle fish
         protected virtual void Swim(Vector3 _target)
         {
-            CalculateDistanceAndDirection(_target);        
-               
+            CalculateDistanceAndDirection(_target);
+            averageSwimSpeed = _speed;
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
             this.transform.Translate(0, 0, _speed * Time.deltaTime);
          
@@ -244,10 +246,11 @@ namespace Fish
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
             Vector3 _dir = target - this.transform.position;
+            averageSwimSpeed = _speed * 2;
 
             if (_presentationDistance > .2f)
             {
-                this.transform.position = Vector3.Lerp(transform.position, target, 2 * Time.deltaTime);
+                this.transform.position = Vector3.Lerp(transform.position, target, averageSwimSpeed * Time.deltaTime);
                
             }
             if(_presentationDistance > 1)
