@@ -11,7 +11,8 @@ namespace Fish
         public GameObject[] fishSchool;
         public Vector3 fishTarget;
         public Transform tankCenter;
-        public int tankSize;
+        public int tankWidth;
+        public int tankHeight;
 
         [SerializeField] private GameObject _fish;
         [SerializeField] private int _fishCount;
@@ -32,14 +33,14 @@ namespace Fish
             {
 
                 Vector3 startPos = new Vector3(
-                    Random.Range(tankCenter.transform.position.x - tankSize, tankCenter.transform.position.x + tankSize),
-                   Random.Range(tankCenter.transform.position.y - tankSize, tankCenter.transform.position.y + tankSize),
-                   Random.Range(tankCenter.transform.position.z - tankSize, tankCenter.transform.position.z + tankSize));
+                    Random.Range(tankCenter.transform.position.x - tankWidth, tankCenter.transform.position.x + tankWidth),
+                   Random.Range(tankCenter.transform.position.y - tankHeight, tankCenter.transform.position.y + tankHeight),
+                   Random.Range(tankCenter.transform.position.z - tankWidth, tankCenter.transform.position.z + tankWidth));
 
                 Vector3 offset = new Vector3(
-                    Random.Range(tankCenter.transform.position.x - tankSize, tankCenter.transform.position.x + tankSize),
-                   Random.Range(tankCenter.transform.position.y - tankSize, tankCenter.transform.position.y + tankSize),
-                   Random.Range(tankCenter.transform.position.z - tankSize, tankCenter.transform.position.z + tankSize));
+                    Random.Range(tankCenter.transform.position.x - tankWidth, tankCenter.transform.position.x + tankWidth),
+                   Random.Range(tankCenter.transform.position.y - tankHeight, tankCenter.transform.position.y + tankHeight),
+                   Random.Range(tankCenter.transform.position.z - tankWidth, tankCenter.transform.position.z + tankWidth));
 
                 fishSchool[i] = Instantiate(_fish, startPos, Quaternion.identity);
                 fishSchool[i].transform.parent = tankCenter;
@@ -64,9 +65,9 @@ namespace Fish
         {
             Debug.Log("new target");
             fishTarget = new Vector3(
-                 Random.Range(tankCenter.transform.position.x - tankSize, tankCenter.transform.position.x + tankSize),
-                Random.Range(tankCenter.transform.position.y - tankSize, tankCenter.transform.position.y + tankSize),
-                Random.Range(tankCenter.transform.position.z - tankSize, tankCenter.transform.position.z + tankSize));
+                  Random.Range(tankCenter.transform.position.x - tankWidth, tankCenter.transform.position.x + tankWidth),
+                   Random.Range(tankCenter.transform.position.y - tankHeight, tankCenter.transform.position.y + tankHeight),
+                   Random.Range(tankCenter.transform.position.z - tankWidth, tankCenter.transform.position.z + tankWidth));
         }
     }
 }

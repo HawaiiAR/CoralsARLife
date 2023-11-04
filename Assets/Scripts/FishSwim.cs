@@ -57,7 +57,7 @@ namespace Fish
         protected virtual void Awake()
         {
           
-            _tankCenter = GameObject.Find("TankCenter").GetComponent<Transform>();
+            _tankCenter = GameObject.Find("--TANKCENTER--").GetComponent<Transform>();
             
             _fishInfo = this.GetComponent<FishInfo>();
             _collider = this.GetComponent<Collider>();

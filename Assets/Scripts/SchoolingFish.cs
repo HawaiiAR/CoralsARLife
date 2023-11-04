@@ -54,7 +54,7 @@ namespace Fish
         {
             if (state == FishState.isSwimming)
             {
-                if (Vector3.Distance(this.transform.position, schoolControl.tankCenter.transform.position) >= schoolControl.tankSize)
+                if (Vector3.Distance(this.transform.position, schoolControl.tankCenter.transform.position) >= schoolControl.tankWidth || Vector3.Distance(this.transform.position, schoolControl.tankCenter.transform.position) >= schoolControl.tankHeight)
                 {
                     _returnToCenter = true;
                    //  Debug.Log("return to center");
