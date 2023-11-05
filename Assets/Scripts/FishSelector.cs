@@ -83,6 +83,9 @@ namespace Fish
                         Debug.Log("place coral");
                         var hitRot = Quaternion.LookRotation(hit.normal);
                         SeedCoral(hit.point, hitRot);
+                        Invoke(nameof(ReloadTime), 1f);
+                        _canPlaceCoral = false;
+
                     }
                 }
             }
@@ -109,6 +112,11 @@ namespace Fish
             FishSwim fishSwim = _fish.GetComponent<FishSwim>();
             fishSwim.state = FishSwim.FishState.isLookingForFood;
             _fish = null;
+        }
+
+        private void ReloadTime()
+        {
+            _canPlaceCoral = true;
         }
     }
 }

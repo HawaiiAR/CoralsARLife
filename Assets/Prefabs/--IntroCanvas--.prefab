@@ -565,8 +565,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 95956048570784c759f6afe87b6de0f1, type: 2}
+  m_sharedMaterial: {fileID: -4275010588592294779, guid: 95956048570784c759f6afe87b6de0f1,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -600,7 +601,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 7
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1059,6 +1060,7 @@ MonoBehaviour:
   _cardTextGroup: {fileID: 6159914127924230737}
   _textCard: {fileID: 5747949493956989115}
   _bgImage_img: {fileID: 8909007623673680802}
+  _uiControl: {fileID: 0}
   _fishTank: {fileID: 0}
 --- !u!320 &2873793254244163578
 PlayableDirector:

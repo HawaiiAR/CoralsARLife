@@ -77,7 +77,7 @@ namespace Bleaching {
   
                 Renderer rend = c.GetComponent<Renderer>();
                 float _time = 0;
-                _colorFadeTime = UnityEngine.Random.Range(1f, 3f);
+                _colorFadeTime = UnityEngine.Random.Range(.5f, 1f);
 
                 Color _currentColor = rend.material.color;
 
