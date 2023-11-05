@@ -1344,7 +1344,8 @@ MonoBehaviour:
   fishSchool: []
   fishTarget: {x: 0, y: 0, z: 0}
   tankCenter: {fileID: 3444422868036293572}
-  tankSize: 5
+  tankWidth: 0
+  tankHeight: 0
   _fish: {fileID: 6358022697174711888, guid: 34f6a22ffb0cb4af08c94f2d8257d242, type: 3}
   _fishCount: 10
 --- !u!1 &2988878081445563871
@@ -4490,7 +4491,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39c1b45870cc74b909fd1da79da9f819, type: 2}
+      objectReference: {fileID: 2100000, guid: e97482a4564bb467caceef346c5cb36f, type: 2}
     - target: {fileID: 919132149155446097, guid: 72f78f2ac938145adb9204a8bf3fee1d,
         type: 3}
       propertyPath: m_Name
@@ -4784,7 +4785,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39c1b45870cc74b909fd1da79da9f819, type: 2}
+      objectReference: {fileID: 2100000, guid: e97482a4564bb467caceef346c5cb36f, type: 2}
     - target: {fileID: 919132149155446097, guid: 72f78f2ac938145adb9204a8bf3fee1d,
         type: 3}
       propertyPath: m_Name

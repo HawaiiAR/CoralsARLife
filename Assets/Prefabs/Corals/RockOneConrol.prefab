@@ -272,6 +272,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockOne
       objectReference: {fileID: 0}
+    - target: {fileID: 3216965408588493379, guid: 12b0f2c82db9c40f8a6fb65d3e20493a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e28fb77472c2346358048c7b2427608d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
