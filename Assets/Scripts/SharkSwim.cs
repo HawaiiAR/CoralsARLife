@@ -74,7 +74,7 @@ namespace Fish {
         protected override void Swim(Vector3 _target)
         {
             CalculateDistanceAndDirection(_target);
-
+            averageSwimSpeed = _speed / 2;
             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
             this.transform.Translate(0, 0, _speed * Time.deltaTime);
            
@@ -83,6 +83,13 @@ namespace Fish {
                 NewTarget();
             }
         
+        }
+
+        // adding this to enable animator speed adjustment
+        protected override void TurnFromTarget(GameObject otherFish)
+        {
+            averageSwimSpeed = _speed;
+            base.TurnFromTarget(otherFish);
         }
 
         public override void FishSelected()

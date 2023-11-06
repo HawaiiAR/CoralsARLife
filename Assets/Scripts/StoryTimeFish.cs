@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bleaching;
 using UnityEngine;
 using Info;
+using System;
 
 namespace Fish
 {
@@ -11,15 +12,15 @@ namespace Fish
         public Transform storyPoint;
 
         [SerializeField] private ParticleSystem _bubbles;
-        private float _bubbleAmount;
+        [SerializeField] private MoveCanvasToPosition _moveCanvas;
 
+        private FishSelector _fishSelector;
+        private float _bubbleAmount;
         private GameObject _presentationPoint;
         private GameObject _player;
 
-
-        [SerializeField] private MoveCanvasToPosition _moveCanvas;
-
         bool isFirstStoryPoint;
+        bool storyOver;
         Vector3 _startSize;
         Vector3 _maxSize;
 
@@ -27,29 +28,35 @@ namespace Fish
         {
 
             BleachingExperienceControl.BleachingStarted += PresentFish;
-            
-            //base.Start();  
-
+            FishSelector.SetStoryFishFree += LookForCoral;
         }
 
         private void OnEnable()
         {
             _presentationPoint = GameObject.FindGameObjectWithTag("PresentationPoint");
             _player = GameObject.FindGameObjectWithTag("MainCamera");
+            _fishSelector = FindObjectOfType<FishSelector>();
+
             state = FishState.isLookingForFood;
+
             isFirstStoryPoint = true;
+            storyOver = false;
+
             _bubbleAmount = 0;
         }
 
         protected override void OnDisable()
         {
             BleachingExperienceControl.BleachingStarted -= PresentFish;
-            // base.OnDisable();
+            FishSelector.SetStoryFishFree -= LookForCoral;
+
         }
 
-        public void StartStory()
+    
+
+            public void StartStory()
         {
-            // PresentFish();
+
             state = FishState.isPresenting;
         }
 
@@ -58,9 +65,15 @@ namespace Fish
 
             if (state == FishState.isSwimming)
             {
-                //  Debug.Log("Story fish active");
-                Swim(storyPoint.transform.position);
-                //moved this out of the swim function so it doesn't get inherited
+                if (!storyOver)
+                {
+                    Swim(storyPoint.transform.position);
+                }
+
+                if (storyOver)
+                {
+                    Swim(_fishSelector.newCoralPos);
+                }
 
                 var em = _bubbles.emission;
                 if (_bubbleAmount < 5)
@@ -73,7 +86,6 @@ namespace Fish
                 {
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     state = FishState.isLookingForFood;
-                    //
                     isFirstStoryPoint = false;
                 }
             }
@@ -84,7 +96,6 @@ namespace Fish
                 Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
                 _dir.y = 0;
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
-
 
                 var em = _bubbles.emission;
                 if (_bubbleAmount > 0)
@@ -157,12 +168,11 @@ namespace Fish
 
         protected override void Chasingfood(Transform food)
         {
-
-
+            //placeholder to override base
         }
         protected override void FoodGone()
         {
-
+            //placeholder to override base
         }
 
         public void HideCanvas()
@@ -172,13 +182,18 @@ namespace Fish
 
         protected override void OnCollisionStay(Collision collision)
         {
-            // base.OnCollisionStay(collision);
+            //placeholder to override base
         }
 
         public void SetGuidFishFree()
         {
             HideCanvas();
-            NewTarget();
+            storyOver = true;
+         
+        }
+
+        private void LookForCoral()
+        {
             state = FishState.isSwimming;
         }
 

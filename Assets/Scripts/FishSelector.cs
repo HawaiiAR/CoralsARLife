@@ -10,7 +10,10 @@ namespace Fish
 
     public class FishSelector : MonoBehaviour
     {
+        public static Action SetStoryFishFree;
         public static Action CoralRestored;
+
+        public Vector3 newCoralPos;
 
         [SerializeField] private Camera _arCamera;
         [SerializeField] private float _rayDistance;
@@ -84,6 +87,7 @@ namespace Fish
                         var hitRot = Quaternion.LookRotation(hit.normal);
                         SeedCoral(hit.point, hitRot);
                         Invoke(nameof(ReloadTime), .25f);
+                        SetStoryFishFree?.Invoke();
                         _canPlaceCoral = false;
 
                     }
@@ -104,6 +108,7 @@ namespace Fish
         {
             int randCoral = UnityEngine.Random.Range(0, _corals.Length);
             Instantiate(_corals[randCoral], coralSpawnPoint, rotation);
+            newCoralPos = coralSpawnPoint;
             _healthyCoral += 1;
         }
 

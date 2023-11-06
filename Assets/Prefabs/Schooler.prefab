@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2807588252678709987}
   - component: {fileID: 7659383127089308897}
   - component: {fileID: 7631231797394103450}
+  - component: {fileID: 4946598982033039752}
   m_Layer: 0
   m_Name: Schooler
   m_TagString: SchoolingFish
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: {fileID: 0}
+  averageSwimSpeed: 0
   state: 0
   _speed: 0
   _fish: {fileID: 6358022697174711888}
@@ -176,8 +178,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 7884846770537070449}
-  _fishName_txt: "middle\t"
-  _fishInformation_txt: these fish feed on the bottom fish
+  fishName_txt: 
+  fishInformation_txt: 
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 5322246990052790074}
   isStoryFish: 0
@@ -210,6 +212,18 @@ MonoBehaviour:
   - {fileID: 991738729744362474}
   - {fileID: 6948198364871996445}
   _fishInfo: {fileID: 2807588252678709987}
+--- !u!114 &4946598982033039752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6358022697174711888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5537ecd8f43436896fb09cea6cd12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &72678608399095483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,7 +305,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d38329778165e49d895e7d579a5731e6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6857724327377993190}
   m_SourcePrefab: {fileID: 100100000, guid: d38329778165e49d895e7d579a5731e6, type: 3}
 --- !u!4 &470781958093844816 stripped
 Transform:
@@ -305,6 +323,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 72678608399095483}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &6857724327377993190
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991738729744362474}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: daf0f0f66d571472b923377075c6fd19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &276619148292824418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,7 +515,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 880fe7dba2a04469a9cf3b8700dbda56,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5962440346171462824}
   m_SourcePrefab: {fileID: 100100000, guid: 880fe7dba2a04469a9cf3b8700dbda56, type: 3}
 --- !u!1 &6948198364871996445 stripped
 GameObject:
@@ -484,6 +527,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7831087161782307148}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &5962440346171462824
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6948198364871996445}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: de316f90e444e459eb45e9ae166ffd94, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7721180996209831591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 880fe7dba2a04469a9cf3b8700dbda56,

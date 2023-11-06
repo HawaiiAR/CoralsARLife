@@ -69,7 +69,9 @@ namespace Fish
         {
             FoodPellet.FoodGone += FoodGone;
             NewTarget();
-           
+            averageSwimSpeed = _speed;
+
+
         }
 
         protected virtual void OnDisable()
@@ -191,10 +193,11 @@ namespace Fish
             }
             else
             {
+                averageSwimSpeed = _speed * 5;
                 isFeeding = true;
                 CalculateDistanceAndDirection(food.transform.position);
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_direction), _rotSpeed);
-                this.transform.Translate(0, 0, _speed * 5 * Time.deltaTime);
+                this.transform.Translate(0, 0, averageSwimSpeed * Time.deltaTime);
             }
 
         }
@@ -246,6 +249,7 @@ namespace Fish
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
             Vector3 _dir = target - this.transform.position;
+
             averageSwimSpeed = _speed * 2;
 
             if (_presentationDistance > .2f)
@@ -266,7 +270,7 @@ namespace Fish
 
             if(_presentationDistance <= .2)
             {
-                
+                averageSwimSpeed = _speed / 2;
                 state = FishState.isFloating;
                 _fishInfo.StoryToTell(0);
             }
@@ -345,9 +349,6 @@ namespace Fish
                 //  UpdateCondition();
                 TurnFromTarget(other.gameObject);
             }
-
-        
-
 
         }
     }
