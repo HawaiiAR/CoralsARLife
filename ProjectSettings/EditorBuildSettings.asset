@@ -17,9 +17,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/AquariumScenes/Honolulu_AquariumAR.unity
     guid: 950c19fbfec6648e094461da82aac32d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/YucaipaTest.unity
     guid: 144e0f1633ce04ec1b99a695a4cb0e7a
+  - enabled: 1
+    path: Assets/Scenes/AquariumScenes/Chicago_Aquarium.unity
+    guid: ae9585eb390ee4024931e2b5b17eafdd
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 25fc453b89c774f74bd77da86168377e,
       type: 2}

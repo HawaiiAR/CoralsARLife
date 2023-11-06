@@ -114,5 +114,20 @@ namespace Fish {
 
             }
         }
+
+        private void OnTriggerStay(Collider other)
+        {
+            //  Debug.Log("hit rock");
+            if (other.gameObject.CompareTag("InfoPannel"))
+            {
+
+                //  UpdateCondition();
+                TurnFromTarget(other.gameObject);
+            }
+
+
+
+
+        }
     }
 }

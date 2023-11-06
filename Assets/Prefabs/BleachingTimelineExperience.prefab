@@ -32,8 +32,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.89, y: 21.09, z: -3.770687}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5499159271456462634}
   m_Father: {fileID: 8442541442744779458}
@@ -124,7 +124,7 @@ MonoBehaviour:
   _fishSwim: {fileID: 0}
   fishName_txt: 
   fishInformation_txt: "Reefs are important but delicate eco systems. \nWatch me
-    and I'll show you what can happen when temperatures get too high!"
+    and I'll show you what can \nhappen when temperatures get too high!"
   _storyTwoInfo_txt: 'Once the reefs are gone it''s difficult to bring them back.
 
     One
@@ -1638,6 +1638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.y
       value: -47.998043
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4602487809829841584, guid: d4fb04f1af6054dec98506557e61dc51,
         type: 3}

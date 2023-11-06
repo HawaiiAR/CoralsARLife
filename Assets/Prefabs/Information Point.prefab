@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5331559997228785681}
   - component: {fileID: 3139228251407161541}
   - component: {fileID: 193988186799065507}
+  - component: {fileID: 5142800102011115458}
   m_Layer: 5
   m_Name: BleachingInfo
-  m_TagString: Untagged
+  m_TagString: InfoPannel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +135,27 @@ MonoBehaviour:
   fishSwim: {fileID: 0}
   _speed: 1
   isStoryFish: 0
+--- !u!65 &5142800102011115458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857201707346515269}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 518.3688, y: 437.8658, z: 77.71913}
+  m_Center: {x: 0, y: 0, z: -0}
 --- !u!1 &950314091388552204
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,9 +541,10 @@ GameObject:
   - component: {fileID: 3729243008780917476}
   - component: {fileID: 4904413628450811098}
   - component: {fileID: 5223493315544194966}
+  - component: {fileID: 8201731010783525570}
   m_Layer: 0
   m_Name: BleachingInformationPannel
-  m_TagString: Untagged
+  m_TagString: InfoPannel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,3 +597,24 @@ MonoBehaviour:
   isStoryFish: 0
   _infoTitle: 
   _info: 
+--- !u!65 &8201731010783525570
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217507974868049261}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 16.320145, y: 10.498583, z: 0.9999999}
+  m_Center: {x: 0, y: 4.749291, z: -0}

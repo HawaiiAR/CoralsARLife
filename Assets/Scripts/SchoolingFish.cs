@@ -172,24 +172,27 @@ namespace Fish
             base.PresentFish();
         }
 
-       /* private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
           //  Debug.Log("hit rock");
-            if (other.gameObject.CompareTag("Rock"))
-            {
+                if (other.gameObject.CompareTag("InfoPannel"))
+                {
+
+                    //  UpdateCondition();
+                    TurnFromTarget(other.gameObject);
+                }
+
+                /*  if (other.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
+                  {
+                     // Debug.Log("turnFromFish");
+                      TurnFromTarget(other.gameObject);
+
+
+                  }*/
+
             
-                UpdateCondition();
-            }
+        }
 
-            if (other.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-            {
-               // Debug.Log("turnFromFish");
-                TurnFromTarget(other.gameObject);
-               
-
-            }
-          
-        }*/
 
         protected override void OnCollisionStay(Collision collision)
         {

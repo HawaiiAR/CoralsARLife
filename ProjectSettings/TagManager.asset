@@ -14,6 +14,7 @@ TagManager:
   - SchoolingFish
   - Shark
   - PointOfInterest
+  - InfoPannel
   layers:
   - Default
   - TransparentFX
