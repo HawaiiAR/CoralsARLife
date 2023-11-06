@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 14.89, y: 21.09, z: -3.770687}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5499159271456462634}
@@ -149,7 +149,7 @@ MonoBehaviour:
   food: {fileID: 0}
   averageSwimSpeed: 0
   state: 0
-  _speed: 2.3
+  _speed: 3
   _fish: {fileID: 4661241385714616833}
   _rotSpeed: 0.5
   _waitTime: 3
@@ -1631,6 +1631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
         type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
       propertyPath: m_margin.w
       value: -138.89769
       objectReference: {fileID: 0}
@@ -1638,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.y
       value: -47.998043
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2574739733557212270, guid: d4fb04f1af6054dec98506557e61dc51,
         type: 3}

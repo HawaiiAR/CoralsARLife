@@ -81,7 +81,7 @@ namespace Fish
         protected override void PresentFish()
         {
             Vector3 _midPointDirection = (_player.transform.position - _presentationPoint.transform.position);
-            Vector3 target = _player.transform.position - (_midPointDirection / 2f);
+            Vector3 target = _player.transform.position - (_midPointDirection *.9f);
 
             float _presentationDistance = Vector3.Distance(this.transform.position, target);
             Vector3 _dir = target - this.transform.position;

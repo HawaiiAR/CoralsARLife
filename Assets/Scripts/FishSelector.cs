@@ -83,7 +83,7 @@ namespace Fish
                         Debug.Log("place coral");
                         var hitRot = Quaternion.LookRotation(hit.normal);
                         SeedCoral(hit.point, hitRot);
-                        Invoke(nameof(ReloadTime), 1f);
+                        Invoke(nameof(ReloadTime), .25f);
                         _canPlaceCoral = false;
 
                     }
