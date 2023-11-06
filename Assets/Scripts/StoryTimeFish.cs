@@ -9,8 +9,13 @@ namespace Fish
     public class StoryTimeFish : FishSwim
     {
         public Transform storyPoint;
+
+        [SerializeField] private ParticleSystem _bubbles;
+        private float _bubbleAmount;
+
         private GameObject _presentationPoint;
         private GameObject _player;
+
 
         [SerializeField] private MoveCanvasToPosition _moveCanvas;
 
@@ -22,6 +27,7 @@ namespace Fish
         {
 
             BleachingExperienceControl.BleachingStarted += PresentFish;
+            
             //base.Start();  
 
         }
@@ -32,6 +38,7 @@ namespace Fish
             _player = GameObject.FindGameObjectWithTag("MainCamera");
             state = FishState.isLookingForFood;
             isFirstStoryPoint = true;
+            _bubbleAmount = 0;
         }
 
         protected override void OnDisable()
@@ -54,6 +61,14 @@ namespace Fish
                 //  Debug.Log("Story fish active");
                 Swim(storyPoint.transform.position);
                 //moved this out of the swim function so it doesn't get inherited
+
+                var em = _bubbles.emission;
+                if (_bubbleAmount < 5)
+                {
+                    _bubbleAmount++;
+                    em.rateOverTime = _bubbleAmount;
+                }
+
                 if (_distance < 1f)
                 {
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
@@ -69,12 +84,31 @@ namespace Fish
                 Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
                 _dir.y = 0;
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
+
+
+                var em = _bubbles.emission;
+                if (_bubbleAmount > 0)
+                {
+                    _bubbleAmount--;
+                    em.rateOverTime = _bubbleAmount;
+                }
             }
             if (state == FishState.isPresenting)
             {
-
+               
                 PresentFish();
 
+            }
+        }
+
+        private void SetParticleEmission(float amount)
+        {
+            var em = _bubbles.emission;
+
+            if(amount < 5)
+            {
+                amount++;
+                em.rateOverTime = amount;
             }
         }
 
