@@ -53,9 +53,10 @@ namespace Fish
         void Update()
         {
             //timer to set a new position every once in a while so the fish swim in different directions
-            if (Random.Range(500, 1000) < 10)
+            if (Random.Range(2, 500) < 10)
             {
                 SetNewTarget();
+                Debug.Log("set new target");
 
             }
         }
@@ -63,7 +64,7 @@ namespace Fish
         //new target for fish to follow
         private void SetNewTarget()
         {
-            Debug.Log("new target");
+          
             fishTarget = new Vector3(
                   Random.Range(tankCenter.transform.position.x - tankWidth, tankCenter.transform.position.x + tankWidth),
                    Random.Range(tankCenter.transform.position.y - tankHeight, tankCenter.transform.position.y + tankHeight),

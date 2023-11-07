@@ -162,7 +162,7 @@ MonoBehaviour:
   _waitTime: 0
   _distanceToOtherFish: 0
   _tankCenter: {fileID: 0}
-  _tankWidth: 5
+  _tankWidth: 35
   _collider: {fileID: 0}
   isFeeding: 0
 --- !u!114 &2807588252678709987

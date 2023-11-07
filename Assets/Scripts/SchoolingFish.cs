@@ -59,13 +59,17 @@ namespace Fish
                     _returnToCenter = true;
                    //  Debug.Log("return to center");
                 }
+                else
+                {
+                    _returnToCenter = false;
+                }
 
                 if (_returnToCenter)
                 {
                     Vector3 _direction = schoolControl.tankCenter.transform.position - this.transform.position;
-                    UpdateRotation(_direction);
                     _speed = Random.Range(.5f, 1);
                     _rotSpeed = Random.Range(.5f, 1);
+                    UpdateRotation(_direction);
                     _returnToCenter = false;
                 }
 

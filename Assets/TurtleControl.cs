@@ -31,7 +31,7 @@ namespace Fish
         {
             if (state == FishState.isSwimming)
             {
-                Debug.Log("is swimming");
+             
                 Swim(target);
                 if (_distance < 1f)
                 {
@@ -61,7 +61,7 @@ namespace Fish
 
             if (state == FishState.isLookingForFood)
             {
-                Debug.Log("is looking for food");
+             
                 FloatTimer(FishState.isSwimming);
                 TurnToTarget(target);
             }
