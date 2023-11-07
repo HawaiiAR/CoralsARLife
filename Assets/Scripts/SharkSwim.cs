@@ -11,8 +11,7 @@ namespace Fish {
         {
             // base.Awake();
             _fishInfo = this.GetComponent<FishInfo>();
-            _collider = this.GetComponent<Collider>();
-          
+            _collider = this.GetComponent<Collider>();          
         }
 
         protected override void Start()
@@ -29,7 +28,6 @@ namespace Fish {
                 if (_distance < .1f)
                 {
                     NewTarget();
-
                 }
             }
 
@@ -42,6 +40,7 @@ namespace Fish {
             {
                 PresentFish();
             }
+
             if (state == FishState.isEscaping)
             {
                 NewTarget();
@@ -63,7 +62,7 @@ namespace Fish {
         }
 
         //this picks a random point on a circle to keep the shark swimming in somewhat of a circular pattern
-        Vector3 RandomPointOnXZCircle(Vector3 center, float radius)
+       protected virtual Vector3 RandomPointOnXZCircle(Vector3 center, float radius)
         {
             
             float angle = Random.Range(0, 2f * Mathf.PI);
@@ -111,10 +110,8 @@ namespace Fish {
                 TurnFromTarget(collision.gameObject);
             }
 
-
             if (collision.gameObject.CompareTag("Shark"))
             {
-
                 //   Debug.Log("turnFromFish");
 
                 TurnFromTarget(collision.gameObject);
@@ -131,9 +128,6 @@ namespace Fish {
                 //  UpdateCondition();
                 TurnFromTarget(other.gameObject);
             }
-
-
-
 
         }
     }

@@ -87,7 +87,7 @@ namespace Fish
             {
                 Swim(target);
                 //moved this out of the swim function so it doesn't get inherited
-                if (_distance < .1f)
+                if (_distance < .2f)
                 {
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     NewTarget();
@@ -146,22 +146,6 @@ namespace Fish
             if (otherFish != this.gameObject)
             {
               
-           //     Debug.Log("turn away");
-                /*  _distance = Vector3.Distance(otherFish.transform.position, this.transform.position);
-                  if (_distance <= _distanceToOtherFish)
-                  {
-
-                     _avoidanceRatio = _avoidanceRatio + (this.transform.position - otherFish.transform.position);
-
-                      Vector3 _midPoint = (this.transform.forward + otherFish.transform.forward).normalized;
-                      Vector3 _direction = (_midPoint + _avoidanceRatio) - this.transform.position;
-
-                      if (_direction != Vector3.zero)
-                      {
-                          this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(-_direction), _rotSpeed * 5 * Time.deltaTime);
-                      }
-                  }*/
-
                 Vector3 avoidanceTarget = this.transform.position - otherFish.transform.position;
                 transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(avoidanceTarget), _rotSpeed  * Time.deltaTime);
                 averageSwimSpeed = _speed * 3;
@@ -276,42 +260,7 @@ namespace Fish
             }
         }
 
-        //a clumsy attemt at phyisics based avoidance. Each fish has a substantially larger collider that should make it turn before the fish mesh reaches another fish mesh
-        /* private void OnCollisionEnter(Collision collision)
-         {
- //            Debug.Log("collision" + collision.gameObject.name);
-
-             if (collision.gameObject.CompareTag("Coral"))     
-               {
-               //  Debug.Log("hit rock");
-                 state = FishState.isSwimming;
-                 NewTarget();
-             }
-
-             if (collision.gameObject.TryGetComponent<FishSwim>(out FishSwim fish))
-             {
-                 //   Debug.Log("turnFromFish");
-
-                 TurnFromTarget(collision.gameObject);
-
-
-             }
-
-         }*/
-
-
-      /*  private void OnCollisionEnter(Collision collision)
-        {
-            if (!isFeeding)
-            {
-                if (collision.gameObject.TryGetComponent<RockOrCoral>(out RockOrCoral rock))
-                {
-                    Debug.Log("hit rock");
-                    state = FishState.isSwimming;
-                    NewTarget();
-                }
-            }
-        }*/
+   
 
         // need to add a check in here if the fish is feeding
         protected virtual void OnCollisionStay(Collision collision)
