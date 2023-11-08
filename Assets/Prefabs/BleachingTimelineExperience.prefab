@@ -5519,8 +5519,8 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: When a reef suffors stressors like high temperature it loses its colorful
-        algae becoming weak, and dieing if pushed too far.
+      value: 'The loss of marine life isn''t just harmfull to the ocean it affects
+        coastal human communities as well. '
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -5709,8 +5709,8 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: Declining reefs deter tourists, impacting coastal economies and emphasizing
-        the need for their preservation.
+      value: Once animals at the bottom of the food chain are gone, mid level and
+        apex preditors soon follow.
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -5899,8 +5899,8 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: This weakens fish populations, affecting communities dependent on them,
-        while also disrupting the delicate reef balance.
+      value: If the algae cant recover, it will die, giving the reef a bone white
+        color called bleaching.
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -5921,6 +5921,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374730569173600677, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 7.2940006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374730569173600677, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 4.1024656
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374730569173600677, guid: 5f80136efac8c430f8d1720dcd1740f2,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 8.141626
       objectReference: {fileID: 0}
     - target: {fileID: 7864879481512769166, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -6019,7 +6034,7 @@ PrefabInstance:
     - target: {fileID: 1149035167171228346, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2863161747124611995, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -6090,7 +6105,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _info
       value: When a reef suffors stressors like high temperature it loses its colorful
-        algae becoming weak, and dieing if pushed too far.
+        algae becoming weak.
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
@@ -6279,8 +6294,8 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: Healthy reefs are vital for a thriving ocean, stressing the importance
-        of preserving them for marine and human well-being.
+      value: The death of coral removes the bottom rung of the food chain cuasing
+        a ripple through the reefs inhabitents.
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
