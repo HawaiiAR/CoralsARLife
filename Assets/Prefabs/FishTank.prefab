@@ -688,8 +688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fishSwim: {fileID: 0}
   fishName_txt: Green Sea Turtle
-  fishInformation_txt: Swift and sleek, the blue fin jack is a formidable predator
-    within the oceanic food chain.
+  fishInformation_txt: Green Sea Turtles, known for their graceful demeanor, feed
+    primarily on algae and seagrass and are a sign of a healthy reef.
   _storyTwoInfo_txt: 
   _infoCanvas: {fileID: 1385248373876173159}
   isStoryFish: 0

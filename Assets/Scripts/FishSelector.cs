@@ -25,7 +25,8 @@ namespace Fish
         bool _bleachingStarted;
         bool _bleached;
         bool _canPlaceCoral;
-       
+        bool _canSelectFish;
+      
 
         // Start is called before the first frame update
         void Start()
@@ -33,6 +34,7 @@ namespace Fish
             BleachingExperienceControl.ReefBleached += PlaceCoral;
             BleachingExperienceControl.BleachingStarted += BleachingStarted;
             _fish = null;
+            _canSelectFish = true;
         }
 
         private void OnDisable()
@@ -74,9 +76,10 @@ namespace Fish
                     if (!_bleached)
                     {
                         //allows a player to select fish if bleaching hasn't started
-                        if (!_bleachingStarted && hit.collider.TryGetComponent(out FishInfo _fishInfo))
+                        if (!_bleachingStarted && hit.collider.TryGetComponent(out FishInfo _fishInfo) && _canSelectFish)
                         {
-                            _fishInfo.PresentFish();   
+                            _fishInfo.PresentFish();
+                            _canSelectFish = false;
                             
                         }
                     }
@@ -114,9 +117,16 @@ namespace Fish
 
         public void ReleaseFish()
         {
+            Debug.Log("release fish");
+            
             FishSwim fishSwim = _fish.GetComponent<FishSwim>();
             fishSwim.state = FishSwim.FishState.isLookingForFood;
             _fish = null;
+        }
+
+        public void SelectFishTrue()
+        {
+            _canSelectFish = true;
         }
 
         private void ReloadTime()

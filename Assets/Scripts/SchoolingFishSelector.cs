@@ -33,11 +33,11 @@ namespace Fish
             {
                 case 0:
                     _fishInfo.fishName_txt = "Morish Idol";
-                    _fishInfo.fishName_txt = "Renowned for its vibrant bands and graceful movements, the Moorish idol brings elegance to reefs.";
+                    _fishInfo.fishInformation_txt = "Renowned for its vibrant bands and graceful movements, the Moorish idol brings elegance to reefs.";
                     break;
                 case 1:
                     _fishInfo.fishName_txt = "Long-nosed butterflyfish:";
-                    _fishInfo.fishName_txt = "With its distinctive elongated snout, the long-nosed butterflyfish gracefully navigates coral reefs in search of nourishmen";
+                    _fishInfo.fishInformation_txt = "With its distinctive elongated snout, the long-nosed butterflyfish gracefully navigates coral reefs in search of nourishmen";
                     break;
 
 

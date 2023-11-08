@@ -5519,7 +5519,7 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: 'The loss of marine life isn''t just harmfull to the ocean it affects
+      value: 'The loss of marine life isn''t just harmful to the ocean it affects
         coastal human communities as well. '
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
@@ -6294,7 +6294,7 @@ PrefabInstance:
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
         type: 3}
       propertyPath: _info
-      value: The death of coral removes the bottom rung of the food chain cuasing
+      value: The death of coral removes the bottom rung of the food chain causing
         a ripple through the reefs inhabitents.
       objectReference: {fileID: 0}
     - target: {fileID: 5223493315544194966, guid: 5f80136efac8c430f8d1720dcd1740f2,
