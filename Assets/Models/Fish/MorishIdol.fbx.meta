@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: FishTwo
     second: {fileID: 2100000, guid: 1ca45a1e832d34ca482b3878763655ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FishTwoTransparent
+    second: {fileID: 2100000, guid: 6fe5640fafad94e3ba1a92ad4d6bbadc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
