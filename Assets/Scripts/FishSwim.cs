@@ -67,11 +67,18 @@ namespace Fish
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            FoodPellet.FoodGone += FoodGone;
-            NewTarget();
+          
+           
             averageSwimSpeed = _speed;
+           
 
+        }
 
+        private void OnEnable()
+        {
+            NewTarget();
+            food = null;
+            FoodPellet.FoodGone += FoodGone;
         }
 
         protected virtual void OnDisable()

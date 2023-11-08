@@ -25,9 +25,17 @@ namespace Fish
       
         protected override void Start()
         {
-            FoodPellet.FoodGone += FoodGone;
-            GetRock();
+         
+          
             _fishStuckTimer = 3;
+        }
+
+        private void OnEnable()
+        {
+            _fishStuckTimer = 3;
+            FoodPellet.FoodGone += FoodGone;
+            food = null;
+            GetRock();
         }
 
         protected override void OnDisable()

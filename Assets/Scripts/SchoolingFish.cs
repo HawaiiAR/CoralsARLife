@@ -35,13 +35,17 @@ namespace Fish
         //sets a random speed and rotation speed for the fish
         protected override void Start()
         {
-            FoodPellet.FoodGone += FoodGone;
-
+         
             _speed = Random.Range(.5f, 1);
             _rotSpeed = Random.Range(.5f, 1);
         
-            state = FishState.isSwimming;
+        }
 
+        private void OnEnable()
+        {
+            FoodPellet.FoodGone += FoodGone;
+            state = FishState.isSwimming;
+            food = null;
         }
 
         protected override void OnDisable()

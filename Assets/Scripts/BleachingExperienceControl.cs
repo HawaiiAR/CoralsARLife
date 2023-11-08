@@ -156,7 +156,7 @@ namespace Bleaching {
                     StartCoroutine(RestoreFish(apexPreditors, true));
                     break;
                 case 4:
-                    ReefBleached?.Invoke();
+                  //  ReefBleached?.Invoke();
                     break;
 
             }
@@ -167,7 +167,7 @@ namespace Bleaching {
 
             for (int i = 0; i < fish.Count; i++)
             {
-                float delay = UnityEngine.Random.Range(3, 5);
+                float delay = UnityEngine.Random.Range(1, 3);
                 fish[i].gameObject.SetActive(state);
                 yield return new WaitForSeconds(delay);
 
@@ -177,7 +177,7 @@ namespace Bleaching {
 
             _fishFoodChainLevel += 1;
 
-            RemoveFish(_fishFoodChainLevel);
+            RestoreFish(_fishFoodChainLevel);
         }
 
         public void CanStartSeedingCoral()
