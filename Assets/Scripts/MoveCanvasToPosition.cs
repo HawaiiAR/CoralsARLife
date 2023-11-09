@@ -102,9 +102,13 @@ namespace Info
         // this is triggered from a button on the canvas to let the fish go. Would be nice to have the fish released if another fish is selected
         public void ReleaseFish()
         {
+            FishSelector selector = FindObjectOfType<FishSelector>();
+            selector.SelectFishTrue();
+
             //ban practice but running out of time
             if (!isStoryFish)
             {
+
                 fishSwim.state = FishSwim.FishState.isEscaping;
             }
 

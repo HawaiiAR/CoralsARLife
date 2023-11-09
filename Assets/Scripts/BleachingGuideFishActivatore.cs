@@ -39,11 +39,16 @@ namespace Fish
             }
         }
 
+        private void DeactivatePanel()
+        {
+            ActivatePanel(false);
+        }
+
         private void OnTriggerExit(Collider other)
         {
             if (other.TryGetComponent<StoryTimeFish>(out StoryTimeFish storyFish))
             {
-                ActivatePanel(false);
+                Invoke(nameof(DeactivatePanel), 2);
             }
         }
     }

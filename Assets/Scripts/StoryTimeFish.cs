@@ -67,6 +67,7 @@ namespace Fish
             {
                 if (!storyOver)
                 {
+
                     Swim(storyPoint.transform.position);
                 }
 
@@ -82,7 +83,7 @@ namespace Fish
                     em.rateOverTime = _bubbleAmount;
                 }
 
-                if (_distance < 1f)
+                if (_distance < .5f)
                 {
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
                     state = FishState.isLookingForFood;
@@ -92,10 +93,10 @@ namespace Fish
 
             if (state == FishState.isLookingForFood)
             {
-                // FloatTimer(FishState.isSwimming);
+                averageSwimSpeed = _speed / 3;
                 Vector3 _dir = _presentationPoint.transform.position - this.transform.position;
                 _dir.y = 0;
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed * Time.deltaTime);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(_dir), _rotSpeed / 2  * Time.deltaTime);
 
                 var em = _bubbles.emission;
                 if (_bubbleAmount > 0)
@@ -125,6 +126,8 @@ namespace Fish
 
         protected override void PresentFish()
         {
+            averageSwimSpeed = _speed;
+
             Vector3 _midPointDirection = (_player.transform.position - _presentationPoint.transform.position);
             Vector3 target = _player.transform.position - (_midPointDirection *.9f);
 
@@ -133,7 +136,8 @@ namespace Fish
 
             if (_presentationDistance > .2f)
             {
-                this.transform.position = Vector3.Lerp(transform.position, target, 2 * Time.deltaTime);
+                averageSwimSpeed = _speed * 2;
+                this.transform.position = Vector3.Lerp(transform.position, target, averageSwimSpeed * Time.deltaTime);
 
             }
             if (_presentationDistance > 1)
@@ -149,7 +153,7 @@ namespace Fish
 
             if (_presentationDistance <= .2)
             {
-
+                averageSwimSpeed = _speed / 3;
                 state = FishState.isFloating;
                 //this allows the fish to display its first message to the playerbefore moving on to the other points
                 if (isFirstStoryPoint)
@@ -164,6 +168,11 @@ namespace Fish
                 }
             }
 
+        }
+
+        protected override void Swim(Vector3 _target)
+        {
+            base.Swim(_target);
         }
 
         protected override void Chasingfood(Transform food)
