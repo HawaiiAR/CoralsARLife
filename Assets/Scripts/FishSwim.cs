@@ -248,18 +248,18 @@ namespace Fish
                 this.transform.position = Vector3.Lerp(transform.position, target, averageSwimSpeed * Time.deltaTime);
                
             }
-            if(_presentationDistance > 1)
+            if(_presentationDistance > 1.5f)
             {
                 this.transform.rotation = Quaternion.LookRotation(_dir);
             }
 
-            if (_presentationDistance < 1)
+            if (_presentationDistance < 1.5f)
             {
                 _collider.enabled = true;
                 this.transform.rotation = Quaternion.Slerp(transform.rotation, _presentationPoint.transform.rotation, 2 * Time.deltaTime);
             }
 
-            if(_presentationDistance <= .2)
+            if(_presentationDistance <= .5f)
             {
                 averageSwimSpeed = _speed / 2;
                 state = FishState.isFloating;

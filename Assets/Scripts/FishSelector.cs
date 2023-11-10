@@ -33,6 +33,7 @@ namespace Fish
         {
             BleachingExperienceControl.ReefBleached += PlaceCoral;
             BleachingExperienceControl.BleachingStarted += BleachingStarted;
+
             _fish = null;
             _canSelectFish = true;
         }

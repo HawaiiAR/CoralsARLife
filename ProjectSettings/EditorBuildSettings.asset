@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/AquariumScenes/LA_Aquarium.unity
     guid: 338f0c000fe9240868c7aed746129ee3
   - enabled: 1
+    path: Assets/Scenes/AquariumScenes/SanBernardino_Museum.unity
+    guid: 8c1372da75ad34cf2b87d272594c3cbc
+  - enabled: 1
     path: Assets/Scenes/YucaipaTest.unity
     guid: 144e0f1633ce04ec1b99a695a4cb0e7a
   m_configObjects:

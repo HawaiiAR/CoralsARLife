@@ -13,6 +13,7 @@ namespace Info
         public TMP_Text fishInfo;
         
         [SerializeField] protected FishSwim fishSwim;
+        FishSelector selector;
 
         [SerializeField] protected float _speed;
         Vector3 _startSize = Vector3.zero;
@@ -33,6 +34,7 @@ namespace Info
         //sets the canvas size to zero on start
         protected virtual void OnEnable()
         {
+            selector = FindObjectOfType<FishSelector>();
             this.transform.localScale = _startSize;
             GrowCanvas();
         }
@@ -102,18 +104,23 @@ namespace Info
         // this is triggered from a button on the canvas to let the fish go. Would be nice to have the fish released if another fish is selected
         public void ReleaseFish()
         {
-            FishSelector selector = FindObjectOfType<FishSelector>();
-            selector.SelectFishTrue();
+            
+           
 
             //ban practice but running out of time
             if (!isStoryFish)
             {
-
+                Invoke(nameof(DelayedReleaseOfFish), 2);
                 fishSwim.state = FishSwim.FishState.isEscaping;
             }
 
             ShrinkCanvas();
 
+        }
+
+        private void DelayedReleaseOfFish()
+        {
+            selector.SelectFishTrue();
         }
     }
 }

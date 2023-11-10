@@ -33,6 +33,7 @@ namespace Fish
             {
              
                 Swim(target);
+
                 if (_distance < 1f)
                 {
                     _rotSpeed = UnityEngine.Random.Range(.1f, .25f);
