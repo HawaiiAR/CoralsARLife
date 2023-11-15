@@ -18,6 +18,7 @@ namespace Bleaching {
         public List<GameObject> bottomLevelFish = new List<GameObject>();
         // Start is called before the first frame update
 
+       
         [SerializeField] private float _colorFadeTime;
         [SerializeField] private PlayableDirector _bleachingDirector;
         private int _fishFoodChainLevel;
@@ -25,6 +26,7 @@ namespace Bleaching {
 
         void Start()
         {
+           
             FishSelector.CoralRestored += BringFishBack;
         }
 
@@ -164,16 +166,15 @@ namespace Bleaching {
 
         IEnumerator RestoreFish(List<GameObject> fish, bool state)
         {
-
             for (int i = 0; i < fish.Count; i++)
             {
-                float delay = UnityEngine.Random.Range(1, 3);
+                float delay = UnityEngine.Random.Range(.5f, 1);
                 fish[i].gameObject.SetActive(state);
                 yield return new WaitForSeconds(delay);
 
             }
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(.5f);
 
             _fishFoodChainLevel += 1;
 
@@ -188,6 +189,7 @@ namespace Bleaching {
         // this brings fish back when coral count reaches three in fish selector
         private void BringFishBack()
         {
+           
             _fishFoodChainLevel = 1;
            // RemoveFish(_fishFoodChainLevel, true);
             RestoreFish(_fishFoodChainLevel);
@@ -195,6 +197,7 @@ namespace Bleaching {
 
 
 
+     
     }
    
 }

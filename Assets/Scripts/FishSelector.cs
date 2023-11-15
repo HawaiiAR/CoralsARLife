@@ -20,7 +20,9 @@ namespace Fish
         [SerializeField] private GameObject[] _corals;
         [SerializeField] private int _healthyCoral;
 
-         GameObject _fish;
+        [SerializeField] private GameObject _niceWork_txt;
+
+        GameObject _fish;
 
         bool _bleachingStarted;
         bool _bleached;
@@ -33,6 +35,7 @@ namespace Fish
         {
             BleachingExperienceControl.ReefBleached += PlaceCoral;
             BleachingExperienceControl.BleachingStarted += BleachingStarted;
+            _niceWork_txt.SetActive(false);
 
             _fish = null;
             _canSelectFish = true;
@@ -49,6 +52,7 @@ namespace Fish
         {
             _bleachingStarted = true;
         }
+
         //allows players to seed coral and replenish the reef
         private void PlaceCoral()
         {
@@ -102,6 +106,7 @@ namespace Fish
             if(_healthyCoral >= 3 && _bleached)
             {
                 //this will start to bring coral back
+                Invoke(nameof(NiceWorkText), 3);
                 CoralRestored?.Invoke();
                 _bleached = false;
             }
@@ -133,6 +138,18 @@ namespace Fish
         private void ReloadTime()
         {
             _canPlaceCoral = true;
+        }
+
+        private void NiceWorkText()
+        {
+            StartCoroutine(NiceWork());
+        }
+
+        IEnumerator NiceWork()
+        {
+            _niceWork_txt.SetActive(true);
+            yield return new WaitForSeconds(5);
+            _niceWork_txt.SetActive(false);
         }
     }
 }
