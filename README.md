@@ -4,6 +4,10 @@ An api Key for googles map tiles and ARcore are needed to reproduce the project.
 
 demo video: https://youtu.be/rr1B35GwEIs
 
+devpost submition link : https://devpost.com/software/coralreefar?ref_content=my-projects-tab&ref_feature=my_projects
+
+HawaiiAR page link: https://www.hawaiiar.com/coralslifear
+
 Unity version 2022.3.1f01
 
 The app uses:
