@@ -2,7 +2,17 @@
 This is an entry to Googles Geospatial Creator Challenge 2023
 An api Key for googles map tiles and ARcore are needed to reproduce the project.
 
+demo video: https://youtu.be/rr1B35GwEIs
+
 Unity version 2022.3.1f01
+
+The app uses:
+Geospatial Creator,
+ARCore Extensions
+MapTiles API
+ARCore API
+Unity 2022.3.1.0f1
+ARFoundation
 
 Contributors:
 Andrew Towl - Concept, Unity development, art assets, c#, AR implementation, design, on location testing
