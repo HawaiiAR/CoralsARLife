@@ -2,6 +2,8 @@
 This is an entry to Googles Geospatial Creator Challenge 2023
 An api Key for googles map tiles and ARcore are needed to reproduce the project.
 
+![CoralsARLife_Demo2](https://github.com/HawaiiAR/CoralsARLife/assets/52302174/79cdc15b-7927-44bf-ac59-9fbbe1f5eaaf)
+
 demo video: https://youtu.be/rr1B35GwEIs
 
 devpost submition link : https://devpost.com/software/coralreefar?ref_content=my-projects-tab&ref_feature=my_projects
